@@ -7,7 +7,7 @@ export function Footer() {
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center justify-center space-y-4">
           <div className="flex items-center space-x-3">
-            <Link 
+            <Link
               href="https://github.com/jameshaworthcs/personal-website"
               target="_blank"
               rel="noopener noreferrer"
@@ -24,4 +24,4 @@ export function Footer() {
       </div>
     </footer>
   )
-} 
+}
