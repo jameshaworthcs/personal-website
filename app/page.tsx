@@ -96,7 +96,7 @@ export default function Home() {
                 Get in touch
               </Link>
               <Link
-                href="#projects"
+                href="#experience"
                 className="bg-secondary text-secondary-foreground hover:bg-secondary/80 px-6 py-3 rounded-lg font-medium transition-colors"
               >
                 View my work
