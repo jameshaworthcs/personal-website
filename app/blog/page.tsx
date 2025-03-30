@@ -22,8 +22,8 @@ export default function BlogPage() {
           <h1 className="text-4xl font-bold mb-6">Blog Coming Soon</h1>
           <p className="text-xl text-muted-foreground mb-10">
             I&apos;m currently working on some interesting articles to share
-            with you. Check back soon for insights on software development&apos;
-            tech trends, and more.
+            with you. Check back soon for insights on software development, tech
+            trends, and more.
           </p>
 
           <div className="bg-muted/30 p-8 rounded-lg">
