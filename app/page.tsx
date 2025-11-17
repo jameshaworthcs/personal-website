@@ -4,7 +4,6 @@ import { ThemeToggle } from '@/components/theme-toggle'
 import { MobileNav } from '@/components/mobile-nav'
 import { Github, Linkedin, Mail, FileCode, ArrowDown } from 'lucide-react'
 import { Footer } from '@/components/footer'
-import { ShowHiddenExperiences } from '@/components/show-hidden-experiences'
 
 export default function Home() {
   return (
@@ -130,61 +129,93 @@ export default function Home() {
             <div className="max-w-4xl mx-auto">
               {/* Timeline container */}
               <div className="relative border-l-2 border-primary/30 ml-6 md:ml-0 md:mx-auto space-y-10 pl-8">
-                {/* York Wines */}
+                {/* ETAS */}
                 <div className="relative">
                   <div className="absolute -left-11 mt-1.5 h-7 w-7 rounded-full border-2 border-primary bg-background flex items-center justify-center">
                     <div className="h-3 w-3 rounded-full bg-primary"></div>
                   </div>
                   <div className="bg-card border rounded-lg p-6 shadow-sm hover:shadow-md transition-all">
                     <div className="flex flex-col md:flex-row md:items-center justify-between mb-2">
-                      <h3 className="text-xl font-bold">Developer</h3>
+                      <h3 className="text-xl font-bold">Software Engineer</h3>
                       <div className="flex items-center gap-2">
                         <span className="text-sm font-medium text-muted-foreground">
-                          <a
-                            href="https://yorkwines.co.uk"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            York Wines
-                          </a>
+                          ETAS
                         </span>
                         <span className="hidden md:block text-muted-foreground">
                           •
                         </span>
                         <span className="text-sm font-medium text-primary">
-                          03/2024 - Present
+                          07/2025 - Present
                         </span>
                       </div>
                     </div>
-                    <ul className="text-muted-foreground mb-4 list-disc pl-5 space-y-1">
-                      <li>
-                        Started as an intern then hired into a permanent role,
-                        improving site architecture and boosting website traffic
-                        by 20%.
-                      </li>
-                      <li>
-                        Consulted on and implemented advanced SEO strategies,
-                        resulting in a 30% boost in sales.
-                      </li>
-                      <li>
-                        Enhanced user experiences and contributed to key company
-                        milestones; watch the CEO discuss my role at
-                        <a
-                          href="https://j-h.ai/york-wines"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          j-h.ai/york-wines
-                        </a>
-                        .
-                      </li>
-                    </ul>
+                    <p className="text-muted-foreground mb-4">
+                      Placement working as a Field Application Engineer.
+                    </p>
                     <div className="flex gap-2 flex-wrap">
                       <span className="px-2 py-1 rounded-full text-xs bg-primary/10 text-primary">
-                        Web Development
+                        Software Engineering
                       </span>
                       <span className="px-2 py-1 rounded-full text-xs bg-primary/10 text-primary">
-                        SEO
+                        Field Application
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* JEM MEDIA LTD */}
+                <div className="relative">
+                  <div className="absolute -left-11 mt-1.5 h-7 w-7 rounded-full border-2 border-primary bg-background flex items-center justify-center">
+                    <div className="h-3 w-3 rounded-full bg-primary"></div>
+                  </div>
+                  <div className="bg-card border rounded-lg p-6 shadow-sm hover:shadow-md transition-all">
+                    <div className="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                      <h3 className="text-xl font-bold">Director</h3>
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm font-medium text-muted-foreground">
+                          JEM MEDIA LTD
+                        </span>
+                        <span className="hidden md:block text-muted-foreground">
+                          •
+                        </span>
+                        <span className="text-sm font-medium text-primary">
+                          05/2020 - Present
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* York Community Consulting */}
+                <div className="relative">
+                  <div className="absolute -left-11 mt-1.5 h-7 w-7 rounded-full border-2 border-primary bg-background flex items-center justify-center">
+                    <div className="h-3 w-3 rounded-full bg-primary"></div>
+                  </div>
+                  <div className="bg-card border rounded-lg p-6 shadow-sm hover:shadow-md transition-all">
+                    <div className="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                      <h3 className="text-xl font-bold">Software Developer</h3>
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm font-medium text-muted-foreground">
+                          York Community Consulting
+                        </span>
+                        <span className="hidden md:block text-muted-foreground">
+                          •
+                        </span>
+                        <span className="text-sm font-medium text-primary">
+                          06/2024 - 07/2025
+                        </span>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground mb-4">
+                      Enhanced performance and user experience of existing
+                      Next.js website.
+                    </p>
+                    <div className="flex gap-2 flex-wrap">
+                      <span className="px-2 py-1 rounded-full text-xs bg-primary/10 text-primary">
+                        Next.js
+                      </span>
+                      <span className="px-2 py-1 rounded-full text-xs bg-primary/10 text-primary">
+                        Web Development
                       </span>
                       <span className="px-2 py-1 rounded-full text-xs bg-primary/10 text-primary">
                         UX/UI
@@ -217,26 +248,15 @@ export default function Home() {
                           •
                         </span>
                         <span className="text-sm font-medium text-primary">
-                          07/2024 - Present
+                          07/2024 - 06/2025
                         </span>
                       </div>
                     </div>
-                    <ul className="text-muted-foreground mb-4 list-disc pl-5 space-y-1">
-                      <li>
-                        Implemented advanced encryption protocols, enhancing
-                        data security and compliance across on-prem and cloud
-                        environments.
-                      </li>
-                      <li>
-                        Deployed cutting-edge cybersecurity tools, improving
-                        threat detection and proactive monitoring capabilities.
-                      </li>
-                      <li>
-                        Establishing cyber incident protocol, refining response
-                        strategies to ensure rapid and effective mitigation of
-                        security breaches.
-                      </li>
-                    </ul>
+                    <p className="text-muted-foreground mb-4">
+                      Oversaw the management of security protocols and
+                      preventative measures, ensuring the confidentiality,
+                      integrity, and availability of data.
+                    </p>
                     <div className="flex gap-2 flex-wrap">
                       <span className="px-2 py-1 rounded-full text-xs bg-primary/10 text-primary">
                         Cybersecurity
@@ -245,14 +265,188 @@ export default function Home() {
                         Cloud Security
                       </span>
                       <span className="px-2 py-1 rounded-full text-xs bg-primary/10 text-primary">
-                        Encryption
+                        Data Protection
                       </span>
                     </div>
                   </div>
                 </div>
 
-                {/* Show Hidden Experiences Component */}
-                <ShowHiddenExperiences />
+                {/* York Wines */}
+                <div className="relative">
+                  <div className="absolute -left-11 mt-1.5 h-7 w-7 rounded-full border-2 border-primary bg-background flex items-center justify-center">
+                    <div className="h-3 w-3 rounded-full bg-primary"></div>
+                  </div>
+                  <div className="bg-card border rounded-lg p-6 shadow-sm hover:shadow-md transition-all">
+                    <div className="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                      <h3 className="text-xl font-bold">Developer</h3>
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm font-medium text-muted-foreground">
+                          <a
+                            href="https://yorkwines.co.uk"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            York Wines
+                          </a>
+                        </span>
+                        <span className="hidden md:block text-muted-foreground">
+                          •
+                        </span>
+                        <span className="text-sm font-medium text-primary">
+                          03/2024 - 05/2025
+                        </span>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground mb-4">
+                      Drove significant growth in online shop sales through
+                      strategic website integrations, SEO optimization, and
+                      enhancements to user experience. Full stack development
+                      expertise enabled rapid implementation and measurable
+                      results.
+                    </p>
+                    <div className="flex gap-2 flex-wrap">
+                      <span className="px-2 py-1 rounded-full text-xs bg-primary/10 text-primary">
+                        Full Stack Development
+                      </span>
+                      <span className="px-2 py-1 rounded-full text-xs bg-primary/10 text-primary">
+                        SEO
+                      </span>
+                      <span className="px-2 py-1 rounded-full text-xs bg-primary/10 text-primary">
+                        UX/UI
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Verified Handles */}
+                <div className="relative">
+                  <div className="absolute -left-11 mt-1.5 h-7 w-7 rounded-full border-2 border-primary bg-background flex items-center justify-center">
+                    <div className="h-3 w-3 rounded-full bg-primary"></div>
+                  </div>
+                  <div className="bg-card border rounded-lg p-6 shadow-sm hover:shadow-md transition-all">
+                    <div className="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                      <h3 className="text-xl font-bold">Lead Developer</h3>
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm font-medium text-muted-foreground">
+                          Verified Handles
+                        </span>
+                        <span className="hidden md:block text-muted-foreground">
+                          •
+                        </span>
+                        <span className="text-sm font-medium text-primary">
+                          11/2020 - 02/2025
+                        </span>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground mb-4">
+                      At the helm of Verified Handles, I drive the
+                      company&apos;s vision, strategy, and execution as its CEO
+                      and Founder. My passion lies in connecting brands with
+                      influencers across social media platforms, and I bring
+                      this to life by harnessing my expertise in Python and AI
+                      to craft cutting-edge solutions for our clients.
+                    </p>
+                    <div className="flex gap-2 flex-wrap">
+                      <span className="px-2 py-1 rounded-full text-xs bg-primary/10 text-primary">
+                        Python
+                      </span>
+                      <span className="px-2 py-1 rounded-full text-xs bg-primary/10 text-primary">
+                        AI
+                      </span>
+                      <span className="px-2 py-1 rounded-full text-xs bg-primary/10 text-primary">
+                        Leadership
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* MBDA */}
+                <div className="relative">
+                  <div className="absolute -left-11 mt-1.5 h-7 w-7 rounded-full border-2 border-primary bg-background flex items-center justify-center">
+                    <div className="h-3 w-3 rounded-full bg-primary"></div>
+                  </div>
+                  <div className="bg-card border rounded-lg p-6 shadow-sm hover:shadow-md transition-all">
+                    <div className="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                      <h3 className="text-xl font-bold">
+                        Software Engineer Work Experience
+                      </h3>
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm font-medium text-muted-foreground">
+                          MBDA
+                        </span>
+                        <span className="hidden md:block text-muted-foreground">
+                          •
+                        </span>
+                        <span className="text-sm font-medium text-primary">
+                          04/2022
+                        </span>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground mb-4">
+                      During my week-long work experience at MBDA Missile
+                      Systems, I collaborated with a partner to develop a
+                      Raspberry Pi Missile project using Python. This innovative
+                      project was presented to a board of leading software
+                      developers at the company, showcasing our technical skills
+                      and collaborative efforts in a professional setting.
+                    </p>
+                    <div className="flex gap-2 flex-wrap">
+                      <span className="px-2 py-1 rounded-full text-xs bg-primary/10 text-primary">
+                        Python
+                      </span>
+                      <span className="px-2 py-1 rounded-full text-xs bg-primary/10 text-primary">
+                        Raspberry Pi
+                      </span>
+                      <span className="px-2 py-1 rounded-full text-xs bg-primary/10 text-primary">
+                        Embedded Systems
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* PhysicsBeyond */}
+                <div className="relative">
+                  <div className="absolute -left-11 mt-1.5 h-7 w-7 rounded-full border-2 border-primary bg-background flex items-center justify-center">
+                    <div className="h-3 w-3 rounded-full bg-primary"></div>
+                  </div>
+                  <div className="bg-card border rounded-lg p-6 shadow-sm hover:shadow-md transition-all">
+                    <div className="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                      <h3 className="text-xl font-bold">
+                        Theoretical and Mathematical Physics
+                      </h3>
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm font-medium text-muted-foreground">
+                          PhysicsBeyond
+                        </span>
+                        <span className="hidden md:block text-muted-foreground">
+                          •
+                        </span>
+                        <span className="text-sm font-medium text-primary">
+                          2021 - 2022
+                        </span>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground mb-4">
+                      Engaged in PhysicsBeyond society at St Albans School,
+                      delving into Theoretical and Mathematical Physics concepts
+                      through collaborative study. Contributed to group
+                      problem-solving, enhancing teamwork and analytical skills.
+                      Actively participated in research projects, demonstrating
+                      a passion for advancing theoretical physics understanding.
+                    </p>
+                    <div className="flex gap-2 flex-wrap">
+                      <span className="px-2 py-1 rounded-full text-xs bg-primary/10 text-primary">
+                        Physics
+                      </span>
+                      <span className="px-2 py-1 rounded-full text-xs bg-primary/10 text-primary">
+                        Mathematics
+                      </span>
+                      <span className="px-2 py-1 rounded-full text-xs bg-primary/10 text-primary">
+                        Research
+                      </span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
