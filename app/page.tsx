@@ -90,6 +90,7 @@ export default function Home() {
                   src="/Linkedin_JamesHaworth.jpg"
                   alt="James Haworth"
                   fill
+                  sizes="150px"
                   className="object-cover scale-125 translate-y-2 -translate-x-0.5"
                   priority
                 />

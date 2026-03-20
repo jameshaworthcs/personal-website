@@ -175,6 +175,7 @@ export function ExperienceTimeline() {
           <div className="flex-1 pt-4">
             <button
               onClick={() => setShowAll(!showAll)}
+              aria-expanded={showAll}
               className="group inline-flex items-center gap-2 rounded-lg bg-primary/5 px-5 py-2.5 text-sm font-medium text-primary transition-colors hover:bg-primary/10"
             >
               {showAll ? (
