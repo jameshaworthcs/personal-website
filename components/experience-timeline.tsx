@@ -105,7 +105,7 @@ export function ExperienceTimeline() {
               <div
                 className={`w-px flex-1 ${isFirst ? 'bg-transparent' : 'bg-border'}`}
               />
-              <div className="relative z-10 h-3.5 w-3.5 shrink-0 rounded-full border-2 border-primary bg-background shadow-sm shadow-primary/20" />
+              <div className="relative z-10 h-3.5 w-3.5 shrink-0 rounded-full border-2 border-primary bg-background shadow-xs shadow-primary/20" />
               <div
                 className={`w-px flex-1 ${isLast && !(!showAll && hiddenCount > 0) ? 'bg-transparent' : 'bg-border'}`}
               />
@@ -113,7 +113,7 @@ export function ExperienceTimeline() {
 
             {/* Card */}
             <div className={`flex-1 ${isLast ? '' : 'pb-6'}`}>
-              <div className="rounded-lg border bg-card p-5 shadow-sm transition-shadow hover:shadow-md">
+              <div className="rounded-lg border bg-card p-5 shadow-xs transition-shadow hover:shadow-md">
                 <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
                   <h3 className="text-lg font-semibold">{exp.title}</h3>
                   <div className="flex items-center gap-2 text-sm">

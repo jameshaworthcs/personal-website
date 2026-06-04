@@ -59,7 +59,7 @@ export default function NotFound() {
         </nav>
       </header>
 
-      <main className="flex-grow flex items-center justify-center relative overflow-hidden">
+      <main className="grow flex items-center justify-center relative overflow-hidden">
         {/* Decorative elements */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div className="absolute -right-10 top-1/4 h-56 w-56 rounded-full bg-primary/5 blur-3xl"></div>
@@ -89,7 +89,7 @@ export default function NotFound() {
 
         <div className="w-full max-w-3xl px-4 py-12 text-center z-10">
           {/* <div className="mb-8 relative inline-block">
-            <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-blue-600 to-violet-600 blur opacity-70"></div>
+            <div className="absolute -inset-1 rounded-full bg-linear-to-r from-blue-600 to-violet-600 blur-sm opacity-70"></div>
             <div className="relative p-4 rounded-full bg-background">
               <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mx-auto">
                 <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" className="text-primary/40" />
@@ -100,7 +100,7 @@ export default function NotFound() {
             </div>
           </div> */}
 
-          <h1 className="text-7xl md:text-9xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-400 mb-2">
+          <h1 className="text-7xl md:text-9xl font-bold bg-clip-text text-transparent bg-linear-to-r from-primary to-blue-400 mb-2">
             404
           </h1>
           <h2 className="text-2xl md:text-4xl font-semibold mb-6">

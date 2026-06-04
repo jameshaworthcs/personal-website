@@ -14,7 +14,7 @@ export default function BlogPage() {
         </div>
       </header>
 
-      <main className="flex-grow flex items-center justify-center p-4">
+      <main className="grow flex items-center justify-center p-4">
         <div className="max-w-2xl mx-auto text-center">
           <div className="mb-8 inline-flex p-3 rounded-full bg-primary/10">
             <Pencil className="h-8 w-8 text-primary" />
