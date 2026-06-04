@@ -79,12 +79,12 @@ export default function Home() {
         </nav>
       </header>
 
-      <main className="flex-grow">
+      <main className="grow">
         {/* Hero Section */}
         <section className="py-20 md:py-32">
           <div className="container mx-auto px-4 flex flex-col items-center text-center">
             <div className="mb-6 relative">
-              <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-blue-600 to-violet-600 blur opacity-70"></div>
+              <div className="absolute -inset-1 rounded-full bg-linear-to-r from-blue-600 to-violet-600 blur-sm opacity-70"></div>
               <div className="w-[150px] h-[150px] rounded-full relative border-2 border-background overflow-hidden">
                 <Image
                   src="/Linkedin_JamesHaworth.jpg"
@@ -157,7 +157,7 @@ export default function Home() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {/* Project Card 1 */}
-              <div className="rounded-lg overflow-hidden border bg-card text-card-foreground shadow-sm transition-all hover:shadow-md">
+              <div className="rounded-lg overflow-hidden border bg-card text-card-foreground shadow-xs transition-all hover:shadow-md">
                 <div className="aspect-video relative bg-muted">
                   <div className="flex h-full items-center justify-center bg-muted">
                     <FileCode className="h-10 w-10 text-muted-foreground/50" />
@@ -204,7 +204,7 @@ export default function Home() {
               </div>
 
               {/* Project Card 2 */}
-              <div className="rounded-lg overflow-hidden border bg-card text-card-foreground shadow-sm transition-all hover:shadow-md">
+              <div className="rounded-lg overflow-hidden border bg-card text-card-foreground shadow-xs transition-all hover:shadow-md">
                 <div className="aspect-video relative bg-muted">
                   <div className="flex h-full items-center justify-center bg-muted">
                     <FileCode className="h-10 w-10 text-muted-foreground/50" />
@@ -251,7 +251,7 @@ export default function Home() {
               </div>
 
               {/* Project Card 3 */}
-              <div className="rounded-lg overflow-hidden border bg-card text-card-foreground shadow-sm transition-all hover:shadow-md">
+              <div className="rounded-lg overflow-hidden border bg-card text-card-foreground shadow-xs transition-all hover:shadow-md">
                 <div className="aspect-video relative bg-muted">
                   <div className="flex h-full items-center justify-center bg-muted">
                     <FileCode className="h-10 w-10 text-muted-foreground/50" />
@@ -332,7 +332,7 @@ export default function Home() {
                 ].map((skill) => (
                   <div
                     key={skill.name}
-                    className="p-4 rounded-lg bg-card shadow-sm flex flex-col items-center"
+                    className="p-4 rounded-lg bg-card shadow-xs flex flex-col items-center"
                   >
                     <div className="h-12 w-12 flex items-center justify-center rounded-full bg-primary/10 text-primary mb-3">
                       {skill.icon}
@@ -378,7 +378,7 @@ export default function Home() {
             <h2 className="text-3xl font-bold mb-12 text-center">
               Curriculum Vitae
             </h2>
-            <div className="max-w-3xl mx-auto bg-card p-8 rounded-lg border shadow-sm">
+            <div className="max-w-3xl mx-auto bg-card p-8 rounded-lg border shadow-xs">
               <div className="flex flex-col md:flex-row items-center gap-6">
                 <div className="rounded-full bg-primary/10 p-5">
                   <svg
