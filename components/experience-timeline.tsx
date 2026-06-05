@@ -24,7 +24,7 @@ const experiences: Experience[] = [
   {
     title: 'Director',
     company: 'JEM MEDIA LTD',
-    companyUrl: 'https://jemmedia.xyz',
+    companyUrl: 'https://jemedia.xyz',
     period: '05/2020 - Present',
     tags: [],
   },
