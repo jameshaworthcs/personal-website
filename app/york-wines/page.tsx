@@ -34,7 +34,7 @@ export default function YorkWinesPage() {
             <img
               className="thumbnail"
               id="thumbnail"
-              src="https://video.jameshaworth.dev/YK-video-thumbnail.png"
+              src="https://video.j-h.ai/YK-video-thumbnail.png"
               alt="Video thumbnail for York Wines"
               onClick={playVideo}
             />
@@ -60,7 +60,7 @@ export default function YorkWinesPage() {
           onEnded={handleVideoEnd}
         >
           <source
-            src="https://video.jameshaworth.dev/James-Haworth-York-Wines-CV.mp4"
+            src="https://video.j-h.ai/James-Haworth-York-Wines-CV.mp4"
             type="video/mp4"
           />
           Your browser does not support the video tag.
@@ -69,10 +69,10 @@ export default function YorkWinesPage() {
       <footer>
         <div>
           <a
-            href="https://video.jameshaworth.dev/James-Haworth-York-Wines-CV.mp4"
+            href="https://video.j-h.ai/James-Haworth-York-Wines-CV.mp4"
             download
           >
-            Download from video.jameshaworth.dev
+            Download from video.j-h.ai
           </a>{' '}
           |{' '}
           <a href="https://j-h.ai" target="_blank" rel="noopener noreferrer">
