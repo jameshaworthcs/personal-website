@@ -14,19 +14,38 @@ interface Experience {
 
 const experiences: Experience[] = [
   {
-    title: 'Software Engineer',
+    title: 'Field Application Engineer',
     company: 'ETAS',
     companyUrl: 'https://etas.com',
-    period: '07/2025 - Present',
-    description: 'Placement working as a Field Application Engineer.',
+    period: '07/2026 - Present',
+    description:
+      'Part-time Field Application Engineer role, continuing on from my placement year.',
+    tags: ['Field Application Engineering'],
+  },
+  {
+    title: 'Cyber Security and IT Engineer',
+    company: 'RosettaPath',
+    companyUrl: 'https://rosettapath.com',
+    period: '07/2026 - Present',
+    description:
+      'Managing security protocols and preventative measures to protect the confidentiality, integrity, and availability of data.',
+    tags: ['Cybersecurity', 'IT Engineering'],
+  },
+  {
+    title: 'Software Engineer Intern',
+    company: 'ETAS',
+    companyUrl: 'https://etas.com',
+    period: '07/2025 - 07/2026',
+    description:
+      'Year-long industrial placement working as a Field Application Engineer.',
     tags: ['Software Engineering', 'Field Application'],
   },
   {
-    title: 'Director',
+    title: 'Founder',
     company: 'JEM MEDIA LTD',
     companyUrl: 'https://jemedia.xyz',
     period: '05/2020 - Present',
-    tags: [],
+    tags: ['Business Ownership'],
   },
   {
     title: 'Software Developer',
@@ -35,6 +54,15 @@ const experiences: Experience[] = [
     description:
       'Enhanced performance and user experience of existing Next.js website.',
     tags: ['Next.js', 'Web Development', 'UX/UI'],
+  },
+  {
+    title: 'Web Developer & SEO Strategist',
+    company: 'York Wines',
+    companyUrl: 'https://yorkwines.co.uk',
+    period: '06/2024 - 06/2025',
+    description:
+      'Drove significant growth in online shop sales through strategic website integrations, SEO optimization, and enhancements to user experience. Watch a short video about the work at j-h.ai/york-wines.',
+    tags: ['Full Stack Development', 'SEO', 'UX/UI'],
   },
   {
     title: 'Cyber Security and IT Engineer',
@@ -46,13 +74,13 @@ const experiences: Experience[] = [
     tags: ['Cybersecurity', 'Cloud Security', 'Data Protection'],
   },
   {
-    title: 'Developer',
+    title: 'Web Development Intern',
     company: 'York Wines',
     companyUrl: 'https://yorkwines.co.uk',
-    period: '03/2024 - 05/2025',
+    period: '03/2024 - 06/2024',
     description:
-      'Drove significant growth in online shop sales through strategic website integrations, SEO optimization, and enhancements to user experience. Full stack development expertise enabled rapid implementation and measurable results.',
-    tags: ['Full Stack Development', 'SEO', 'UX/UI'],
+      'Worked directly with management to evaluate how the existing website was used to sell wine, and contributed to the development of the new website.',
+    tags: ['Business Research', 'Software Infrastructure'],
   },
   {
     title: 'Lead Developer',
