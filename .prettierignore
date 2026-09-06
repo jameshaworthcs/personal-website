@@ -1,0 +1,2 @@
+# Next.js rewrites this on every dev/build (jsx runtime, dev types, array style)
+tsconfig.json
