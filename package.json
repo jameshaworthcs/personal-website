@@ -35,7 +35,7 @@
     "postcss": "^8.5.10",
     "prettier": "^3.9.6",
     "tailwindcss": "^4.3.0",
-    "typescript": "^6"
+    "typescript": "^7"
   },
   "overrides": {
     "sucrase": "^3.35.1",
