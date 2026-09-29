@@ -41,6 +41,15 @@ const experiences: Experience[] = [
     tags: ['Software Engineering', 'Field Application'],
   },
   {
+    title: 'Founder & Lead Developer',
+    company: 'Verified Handles',
+    companyUrl: 'https://verifiedhandles.org',
+    period: '11/2020 - Present',
+    description:
+      'I founded and run Verified Handles, a public directory of verified social handles for 156,000+ public figures and organizations, 153,000+ of them linked to Wikidata. In 2026 I rebuilt it as one TypeScript/PostgreSQL platform, replacing MediaWiki, PHP and Python bots, and migrated all 591k historical revisions with zero data loss; it has been live since September 2026. I run production and staging with edge caching, monitoring, daily backups, OIDC sign-in and moderated editing.',
+    tags: ['TypeScript', 'PostgreSQL', 'Leadership'],
+  },
+  {
     title: 'Founder',
     company: 'JEM MEDIA LTD',
     companyUrl: 'https://jemedia.xyz',
@@ -81,15 +90,6 @@ const experiences: Experience[] = [
     description:
       'Worked directly with management to evaluate how the existing website was used to sell wine, and contributed to the development of the new website.',
     tags: ['Business Research', 'Software Infrastructure'],
-  },
-  {
-    title: 'Lead Developer',
-    company: 'Verified Handles',
-    companyUrl: 'https://verifiedhandles.org',
-    period: '11/2020 - 02/2025',
-    description:
-      "At the helm of Verified Handles, I drive the company's vision, strategy, and execution as its CEO and Founder. My passion lies in connecting brands with influencers across social media platforms, and I bring this to life by harnessing my expertise in Python and AI to craft cutting-edge solutions for our clients.",
-    tags: ['Python', 'AI', 'Leadership'],
   },
   {
     title: 'Software Engineer Work Experience',
