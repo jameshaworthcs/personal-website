@@ -46,7 +46,7 @@ const experiences: Experience[] = [
     companyUrl: 'https://verifiedhandles.org',
     period: '11/2020 - Present',
     description:
-      'I founded and run Verified Handles, a public directory of verified social handles for 156,000+ public figures and organizations, 153,000+ of them linked to Wikidata. In 2026 I rebuilt it as one TypeScript/PostgreSQL platform, replacing MediaWiki, PHP and Python bots, and migrated all 591k historical revisions with zero data loss; it has been live since September 2026. I run production and staging with edge caching, monitoring, daily backups, OIDC sign-in and moderated editing.',
+      'I founded and run Verified Handles, a public directory of verified social handles for 156,000+ public figures and organisations, 153,000+ of them linked to Wikidata. In 2026 I rebuilt it as one TypeScript/PostgreSQL platform, replacing MediaWiki, PHP and Python bots, and migrated all 591k historical revisions with zero data loss; it has been live since September 2026. I run production and staging with edge caching, monitoring, daily backups, OIDC sign-in and moderated editing.',
     tags: ['TypeScript', 'PostgreSQL', 'Leadership'],
   },
   {
@@ -70,7 +70,7 @@ const experiences: Experience[] = [
     companyUrl: 'https://yorkwines.co.uk',
     period: '06/2024 - 06/2025',
     description:
-      'Drove significant growth in online shop sales through strategic website integrations, SEO optimization, and enhancements to user experience. Watch a short video about the work at j-h.ai/york-wines.',
+      'Drove significant growth in online shop sales through strategic website integrations, SEO optimisation, and enhancements to user experience. Watch a short video about the work at j-h.ai/york-wines.',
     tags: ['Full Stack Development', 'SEO', 'UX/UI'],
   },
   {
