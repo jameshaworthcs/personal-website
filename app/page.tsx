@@ -2,15 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { MobileNav } from '@/components/mobile-nav'
-import {
-  Github,
-  Linkedin,
-  Mail,
-  FileCode,
-  ArrowDown,
-  Brain,
-  Globe,
-} from 'lucide-react'
+import { Mail, FileCode, ArrowDown, Brain, Globe } from 'lucide-react'
 import {
   SiJavascript,
   SiTypescript,
@@ -19,6 +11,7 @@ import {
   SiTailwindcss,
   SiGit,
 } from 'react-icons/si'
+import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { ExperienceTimeline } from '@/components/experience-timeline'
 import { Footer } from '@/components/footer'
 
@@ -185,7 +178,7 @@ export default function Home() {
                       href="#"
                       className="text-muted-foreground hover:text-foreground"
                     >
-                      <Github className="h-5 w-5" />
+                      <FaGithub className="h-5 w-5" />
                     </Link>
                     <Link
                       href="#"
@@ -232,7 +225,7 @@ export default function Home() {
                       href="#"
                       className="text-muted-foreground hover:text-foreground"
                     >
-                      <Github className="h-5 w-5" />
+                      <FaGithub className="h-5 w-5" />
                     </Link>
                     <Link
                       href="#"
@@ -279,7 +272,7 @@ export default function Home() {
                       href="#"
                       className="text-muted-foreground hover:text-foreground"
                     >
-                      <Github className="h-5 w-5" />
+                      <FaGithub className="h-5 w-5" />
                     </Link>
                     <Link
                       href="#"
@@ -493,7 +486,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 p-4 rounded-lg bg-card hover:bg-card/80 transition-colors border"
               >
-                <Github className="h-5 w-5 text-primary" />
+                <FaGithub className="h-5 w-5 text-primary" />
                 <span>github.com/jameshaworthcs</span>
               </a>
               <a
@@ -502,7 +495,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 p-4 rounded-lg bg-card hover:bg-card/80 transition-colors border"
               >
-                <Linkedin className="h-5 w-5 text-primary" />
+                <FaLinkedin className="h-5 w-5 text-primary" />
                 <span>linkedin.com/in/jameshaworthcs</span>
               </a>
             </div>
