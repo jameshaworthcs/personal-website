@@ -19,7 +19,7 @@ const experiences: Experience[] = [
     companyUrl: 'https://etas.com',
     period: '07/2026 - Present',
     description:
-      "Part-time, retained as an expert after my placement year. Since September 2026 I've owned the team's AI enablement: I onboarded colleagues to Claude Code and GitHub Copilot, which most now use regularly, and I write agent skills that speed up customer support and development.",
+      "Part-time, retained as an expert after my placement year. Since September 2026 I've owned the team's AI enablement, and I lead its shared repository of agent skills. I onboarded colleagues to Claude Code and GitHub Copilot, which over half the team now use weekly. I write agent skills that investigate a support ticket from scratch, draft a Jira comment and fact-check it, so some investigations now take minutes instead of hours, and I keep model API costs down with cheaper models for subagents and less context.",
     tags: ['Field Application Engineering'],
   },
   {
@@ -37,7 +37,7 @@ const experiences: Experience[] = [
     companyUrl: 'https://etas.com',
     period: '07/2025 - 07/2026',
     description:
-      'Year-long industrial placement in Field Application Engineering. I resolved RTAHotline support tickets from automotive OEMs and Tier-1 suppliers using RTA-CAR (AUTOSAR Classic): reproducing faults, finding root causes and escalating product defects to R&D. I overhauled the team\'s broken Jenkins CI/CD pipeline (Groovy) that builds, tests and releases customer demo projects; it was adopted as the team standard and rolled out to colleagues. I led SKDocs, a public-facing documentation site on MkDocs published via Jenkins, agreeing editorial standards across departments and helping to shape the department\'s documentation strategy. I also developed and debugged internal tools, including AI tools, and optimised model API costs. My supervisor rated me as "consistently contributing at a level comparable to his full-time peers".',
+      "Year-long industrial placement in Field Application Engineering. Since July 2025 I've resolved 170+ RTAHotline support tickets from automotive OEMs and Tier-1 suppliers worldwide using RTA-CAR (AUTOSAR Classic): reproducing faults, finding root causes and escalating around 80 defects to R&D. I overhauled the team's long-broken Jenkins CI/CD pipeline (Groovy) that builds, tests and releases customer demo projects, cutting release time from several hours to under an hour; it was adopted as the team standard. I led SKDocs, a public-facing documentation site built with MkDocs and Jenkins that is now ready to go live, agreeing editorial standards across departments and helping to shape the department's documentation strategy. I also built and debugged internal tools. My supervisor rated me as \"consistently contributing at a level comparable to his full-time peers\".",
     tags: ['Software Engineering', 'Field Application'],
   },
   {
