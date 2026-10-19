@@ -19,25 +19,25 @@ const experiences: Experience[] = [
     companyUrl: 'https://etas.com',
     period: '07/2026 - Present',
     description:
-      'Part-time Field Application Engineer role, continuing on from my placement year.',
+      "Part-time, retained as an expert after my placement year. Since September 2026 I've owned the team's AI enablement: I onboarded colleagues to Claude Code and GitHub Copilot, which most now use regularly, and I write agent skills that speed up customer support and development.",
     tags: ['Field Application Engineering'],
   },
   {
-    title: 'Cyber Security and IT Engineer',
+    title: 'Cyber Security and IT Engineer (part-time)',
     company: 'RosettaPath',
     companyUrl: 'https://rosettapath.com',
     period: '07/2026 - Present',
     description:
-      'Managing security protocols and preventative measures to protect the confidentiality, integrity, and availability of data.',
+      'Resolved the findings of a third-party security audit, including email authentication (DMARC).',
     tags: ['Cybersecurity', 'IT Engineering'],
   },
   {
-    title: 'Software Engineer Intern',
+    title: 'Software Engineering Intern',
     company: 'ETAS',
     companyUrl: 'https://etas.com',
     period: '07/2025 - 07/2026',
     description:
-      'Year-long industrial placement working as a Field Application Engineer.',
+      'Year-long industrial placement in Field Application Engineering. I resolved RTAHotline support tickets from automotive OEMs and Tier-1 suppliers using RTA-CAR (AUTOSAR Classic): reproducing faults, finding root causes and escalating product defects to R&D. I overhauled the team\'s broken Jenkins CI/CD pipeline (Groovy) that builds, tests and releases customer demo projects; it was adopted as the team standard and rolled out to colleagues. I led SKDocs, a public-facing documentation site on MkDocs published via Jenkins, agreeing editorial standards across departments and helping to shape the department\'s documentation strategy. I also developed and debugged internal tools, including AI tools, and optimised model API costs. My supervisor rated me as "consistently contributing at a level comparable to his full-time peers".',
     tags: ['Software Engineering', 'Field Application'],
   },
   {
@@ -46,7 +46,7 @@ const experiences: Experience[] = [
     companyUrl: 'https://verifiedhandles.org',
     period: '11/2020 - Present',
     description:
-      'I founded and run Verified Handles, a public directory of verified social handles for 156,000+ public figures and organisations, 153,000+ of them linked to Wikidata. In 2026 I rebuilt it as one TypeScript/PostgreSQL platform, replacing MediaWiki, PHP and Python bots, and migrated all 591k historical revisions with zero data loss; it has been live since September 2026. I run production and staging with edge caching, monitoring, daily backups, OIDC sign-in and moderated editing.',
+      "I founded and run Verified Handles, a public directory of verified social handles for 155,000+ public figures and organisations, 153,000+ of them linked to Wikidata. In 2026 I rebuilt it as one TypeScript/PostgreSQL platform, replacing MediaWiki, PHP and Python bots, and migrated all 591k historical revisions with zero data loss; it has been live since September 2026. I designed and directed the rebuild with parallel Claude Code agents, each in its own clone and gated by tests and staging before release. I also created an MCP server with 120+ tools and use it to manage the live directory with AI agents; it is designed so an agent can do nothing its user couldn't, and nothing by accident. I run production and staging with edge caching, monitoring, daily backups, OIDC sign-in and moderated editing.",
     tags: ['TypeScript', 'PostgreSQL', 'Leadership'],
   },
   {
@@ -59,18 +59,18 @@ const experiences: Experience[] = [
   {
     title: 'Software Developer',
     company: 'York Community Consulting',
-    period: '06/2024 - 07/2025',
+    period: '06/2024 - 05/2025',
     description:
       'Enhanced performance and user experience of existing Next.js website.',
     tags: ['Next.js', 'Web Development', 'UX/UI'],
   },
   {
-    title: 'Web Developer & SEO Strategist',
+    title: 'Website/SEO Strategist',
     company: 'York Wines',
     companyUrl: 'https://yorkwines.co.uk',
-    period: '06/2024 - 06/2025',
+    period: '06/2024 - 05/2025',
     description:
-      'Drove significant growth in online shop sales through strategic website integrations, SEO optimisation, and enhancements to user experience. Watch a short video about the work at j-h.ai/york-wines.',
+      'Grew online shop sales by 30% and website traffic by 20% through SEO, site integrations and user experience work. Watch a short video about the work at j-h.ai/york-wines.',
     tags: ['Full Stack Development', 'SEO', 'UX/UI'],
   },
   {

@@ -66,6 +66,37 @@ export default function YorkWinesPage() {
           Your browser does not support the video tag.
         </video>
       </div>
+      <section className="transcript" aria-labelledby="transcript-heading">
+        <h2 id="transcript-heading">Transcript</h2>
+        <p className="intro">
+          Alex Edwards, the owner of York Wines, and James Haworth talk about
+          James&apos;s work on the York Wines website. Filmed on 24 July 2024 by
+          Paul Richardson for the University of York.
+        </p>
+        <p>
+          <span className="time">0:02</span> <strong>Alex Edwards:</strong>{' '}
+          I&apos;m Alex Edwards and I&apos;m the owner of York Wines. We&apos;ve
+          had a website for a long time, and we wanted to give it the best shot
+          at being as successful as possible.
+        </p>
+        <p>
+          <span className="time">0:11</span> <strong>James Haworth:</strong> I
+          was basically managing the website, trying to get it to rank better in
+          search results and also optimising the content and the user flow, so
+          that when people visited the website they&apos;d have just a really
+          seamless experience.
+        </p>
+        <p>
+          <span className="time">0:23</span> <strong>Alex Edwards:</strong>{' '}
+          James has had a really positive impact on the business, so much so
+          that we went on to offer James a permanent fixed contract to continue
+          the fantastic work that he had started.
+        </p>
+        <p>
+          <span className="time">0:35</span>{' '}
+          <em>Closing card: Thank you for watching.</em>
+        </p>
+      </section>
       <footer>
         <div>
           <a
@@ -133,6 +164,33 @@ export default function YorkWinesPage() {
         video {
           width: 100%;
           display: block;
+        }
+
+        .transcript {
+          max-width: 720px;
+          margin: 32px auto 0;
+          padding: 0 16px;
+          line-height: 1.6;
+        }
+
+        .transcript h2 {
+          font-size: 1.25rem;
+          font-weight: 600;
+          margin: 0 0 12px;
+        }
+
+        .transcript p {
+          margin: 0 0 12px;
+        }
+
+        .transcript .intro {
+          color: #a8a8a8;
+        }
+
+        .transcript .time {
+          color: #a8a8a8;
+          font-variant-numeric: tabular-nums;
+          margin-right: 4px;
         }
 
         footer {
