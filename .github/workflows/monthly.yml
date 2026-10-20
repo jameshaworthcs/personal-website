@@ -1,0 +1,71 @@
+name: Monthly checks
+
+# The live site, once a month: every link on every page, and Lighthouse.
+# A failure opens an issue rather than failing silently.
+on:
+  schedule:
+    - cron: '17 6 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  live-site:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      PAGES: >-
+        https://j-h.ai/
+        https://j-h.ai/cv
+        https://j-h.ai/work/counting-house
+        https://j-h.ai/work/verified-handles
+        https://j-h.ai/work/verified-handles-mcp
+        https://j-h.ai/york-wines
+        https://j-h.ai/privacy
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      # LinkedIn and Instagram refuse automated requests, so they're skipped
+      - id: links
+        uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
+        with:
+          args: >-
+            --no-progress --max-retries 3
+            --exclude 'linkedin\.com' --exclude 'instagram\.com'
+            ${{ env.PAGES }}
+          fail: false
+          output: ./links.md
+      - id: lighthouse
+        continue-on-error: true
+        uses: treosh/lighthouse-ci-action@3e7e23fb74242897f95c0ba9cabad3d0227b9b18 # 12.6.2
+        with:
+          urls: |
+            https://j-h.ai/
+            https://j-h.ai/cv
+            https://j-h.ai/work/verified-handles
+            https://j-h.ai/york-wines
+          configPath: ./lighthouserc.live.json
+          uploadArtifacts: true
+      - name: Open an issue if a check failed
+        if: ${{ steps.links.outputs.exit_code != '0' || steps.lighthouse.outcome == 'failure' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          LINKS_FAILED: ${{ steps.links.outputs.exit_code != '0' }}
+          LIGHTHOUSE_FAILED: ${{ steps.lighthouse.outcome == 'failure' }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          {
+            echo "The monthly check of the live site failed: $RUN_URL"
+            echo
+            if [ "$LIGHTHOUSE_FAILED" = true ]; then
+              echo "Lighthouse missed a score or budget; the reports are in the run's artifacts."
+              echo
+            fi
+            if [ "$LINKS_FAILED" = true ]; then cat links.md; fi
+          } > issue.md
+          gh issue create --repo "$GITHUB_REPOSITORY" \
+            --title "Monthly site check failed ($(date -u +%m/%Y))" \
+            --body-file issue.md

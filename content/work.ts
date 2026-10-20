@@ -1,3 +1,5 @@
+import type { ScreenshotName } from './screenshots'
+
 export interface WorkLink {
   label: string
   href: string
@@ -7,6 +9,7 @@ export interface WorkSection {
   heading: string
   paragraphs?: string[]
   bullets?: string[]
+  screenshot?: { name: ScreenshotName; alt: string; caption: string }
 }
 
 export interface Work {
@@ -102,6 +105,11 @@ export const work: Work[] = [
           paragraphs: [
             'A public directory of verified social handles for 155,000+ public figures and organisations, 153,000+ of them linked to Wikidata.',
           ],
+          screenshot: {
+            name: 'vh-home',
+            alt: 'The verifiedhandles.org home page: a search box for 155,736 people and organisations, and a grid of trending entries.',
+            caption: 'The verifiedhandles.org home page, 10/2026.',
+          },
         },
         {
           heading: 'What I designed',
@@ -109,6 +117,11 @@ export const work: Work[] = [
             'The site, its architecture, its hosting and its monitoring: production and staging behind Google Project Shield, nginx and Varnish; Prometheus, Grafana and Loki for metrics, logs and alerts; daily backups and moderated editing.',
             'I also built JEMEDIA Accounts, the Go OAuth 2.0/OpenID Connect provider behind sign-in.',
           ],
+          screenshot: {
+            name: 'vh-entry',
+            alt: "Netflix's entry on Verified Handles: its description, images from Wikimedia Commons and its official accounts on X.",
+            caption: 'An entry page, rendered on the server, 10/2026.',
+          },
         },
         {
           heading: 'How I built it',
@@ -162,6 +175,11 @@ export const work: Work[] = [
           paragraphs: [
             "Public reads need no key. A read-only key, or a key with a role ceiling, limits what an agent can do. Claude, ChatGPT, VS Code and Cursor can sign in with OAuth instead of a key, and there's a Claude Desktop extension.",
           ],
+          screenshot: {
+            name: 'vh-mcp',
+            alt: 'The guide to connecting an agent on verifiedhandles.org: server address, transport, keys and version, then the guides.',
+            caption: "The MCP server's guide on verifiedhandles.org, 10/2026.",
+          },
         },
       ],
     },

@@ -14,14 +14,16 @@ The personal website of James Haworth, live at [j-h.ai](https://j-h.ai).
 
 ## Layout
 
-| Path                    | What it holds                                                                   |
-| ----------------------- | ------------------------------------------------------------------------------- |
-| `content/`              | Every fact on the site, as typed data: profile, experience, work, education, CV |
-| `app/`                  | Pages: home, `/cv`, `/work/[slug]`, `/york-wines`, `/privacy`, metadata files   |
-| `components/`           | The pieces the pages are built from                                             |
-| `tests/`                | Playwright tests, including axe in both themes                                  |
-| `scripts/serve-out.mjs` | Serves `./out` the way GitHub Pages does, for the tests and Lighthouse          |
-| `scripts/images.mjs`    | Builds the photo's AVIF, WebP and JPEG sizes from `assets/photo.jpg`            |
+| Path                      | What it holds                                                                   |
+| ------------------------- | ------------------------------------------------------------------------------- |
+| `content/`                | Every fact on the site, as typed data: profile, experience, work, education, CV |
+| `app/`                    | Pages: home, `/cv`, `/work/[slug]`, `/york-wines`, `/privacy`, metadata files   |
+| `components/`             | The pieces the pages are built from                                             |
+| `tests/`                  | Playwright tests, including axe in both themes                                  |
+| `scripts/serve-out.mjs`   | Serves `./out` the way GitHub Pages does, for the tests and Lighthouse          |
+| `scripts/images.mjs`      | Builds the photo's AVIF, WebP and JPEG sizes from `assets/photo.jpg`            |
+| `scripts/screenshots.mjs` | Captures the project screenshots at 3840 px and builds their sizes              |
+| `scripts/check-cv.mjs`    | Compares the site's facts with the CV's LaTeX source                            |
 
 ## Running it
 
@@ -47,9 +49,14 @@ npm run validate:html  # html-validate on ./out
 npm run test:e2e       # Playwright: axe, keyboard, links, URLs on sent CVs
 ```
 
-Lighthouse CI then audits five pages three times each against the scores and
+Lighthouse CI then audits six pages three times each against the scores and
 budgets in `lighthouserc.json`. To run the tests in an installed Chrome rather
 than Playwright's own, set `PLAYWRIGHT_CHANNEL=chrome`.
+
+Before sending a CV, `npm run check:cv` compares `content/cv.ts` with
+`../resume/resume.tex` (or a path you pass) and fails on any difference. Once a
+month, `.github/workflows/monthly.yml` checks every link on the live site and
+runs Lighthouse against it; a failure opens an issue.
 
 ## Deployment
 
@@ -67,6 +74,9 @@ deploy, CI checks that `/`, `/york-wines` and `/cv.pdf` still answer.
 - To change the photo, replace `assets/photo.jpg` (any shape: 1:1 and 4:5 both
   work) and run `npm run images`, which also records its shape in
   `content/photo.ts`.
+- The project screenshots are captured from the live sites by
+  `npm run screenshots`. Pages show a tiny blurred placeholder, then load only
+  the size the screen needs; each links to its full 3840 px image.
 
 ## Licence
 

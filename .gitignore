@@ -26,3 +26,6 @@ next-env.d.ts
 /test-results/
 /playwright-report/
 /.lighthouseci/
+
+# screenshot captures (npm run screenshots); the sizes in public/img/work are committed
+/assets/screenshots/

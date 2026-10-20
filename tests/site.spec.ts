@@ -163,3 +163,25 @@ test('the home page describes James in structured data', async ({ page }) => {
   expect(data['@type']).toBe('ProfilePage')
   expect(data.mainEntity.name).toBe('James Haworth')
 })
+
+test('project screenshots load and link to their full size', async ({
+  page,
+  request,
+}) => {
+  for (const path of ['/work/verified-handles', '/work/verified-handles-mcp']) {
+    await page.goto(path)
+    const figures = page.locator('figure')
+    await expect(figures.first()).toBeVisible()
+    for (const figure of await figures.all()) {
+      await figure.scrollIntoViewIfNeeded()
+      const img = figure.locator('img')
+      await expect(img).toHaveAttribute('loading', 'lazy')
+      await expect
+        .poll(() => img.evaluate((el: HTMLImageElement) => el.naturalWidth))
+        .toBeGreaterThan(0)
+      const full = await figure.getByRole('link').getAttribute('href')
+      const response = await request.get(full ?? '')
+      expect(response.status(), full ?? '').toBe(200)
+    }
+  }
+})

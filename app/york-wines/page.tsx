@@ -66,8 +66,9 @@ export default function YorkWinesPage() {
           </li>
         </ul>
         <p className="mb-10 text-lg leading-relaxed">
-          Through SEO, site integrations and UX work. York Wines offered me a
-          contract after my internship, then an extension.
+          Through SEO, site integrations and UX work, measured in Google
+          Analytics and the shop&apos;s own metrics while I worked there. York
+          Wines offered me a contract after my internship, then an extension.
         </p>
 
         <section
