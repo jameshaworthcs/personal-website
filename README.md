@@ -53,10 +53,11 @@ Lighthouse CI then audits six pages three times each against the scores and
 budgets in `lighthouserc.json`. To run the tests in an installed Chrome rather
 than Playwright's own, set `PLAYWRIGHT_CHANNEL=chrome`.
 
-Before sending a CV, `npm run check:cv` compares `content/cv.ts` with
-`../resume/resume.tex` (or a path you pass) and fails on any difference. Once a
-month, `.github/workflows/monthly.yml` checks every link on the live site and
-runs Lighthouse against it; a failure opens an issue.
+Before sending a CV, `npm run check:cv` compares `content/cv.ts`, and the
+section headings in `app/cv/page.tsx`, with `../resume/resume.tex` (or a path
+you pass) and fails on any difference. Once a month,
+`.github/workflows/monthly.yml` checks every link on the live site and runs
+Lighthouse against it; a failure opens an issue.
 
 ## Deployment
 

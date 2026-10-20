@@ -8,6 +8,7 @@ import { skills } from '@/content/skills'
 import {
   cvEducation,
   cvExperience,
+  cvLinks,
   cvProjects,
   type CvEntry,
 } from '@/content/cv'
@@ -38,12 +39,30 @@ function CvSection({
   )
 }
 
+// A bullet's text, with the parts the CV links turned into links
+function Linked({ text }: { text: string }) {
+  const label = Object.keys(cvLinks).find((label) => text.includes(label))
+  if (!label) return text
+  const at = text.indexOf(label)
+  return (
+    <>
+      {text.slice(0, at)}
+      <a href={cvLinks[label]} className="underline">
+        {label}
+      </a>
+      <Linked text={text.slice(at + label.length)} />
+    </>
+  )
+}
+
 function Bullets({ items }: { items: string[] }) {
   if (items.length === 0) return null
   return (
     <ul className="mt-1.5 list-disc space-y-1 pl-5 text-[15px] leading-snug print:text-[10pt]">
       {items.map((item) => (
-        <li key={item}>{item}</li>
+        <li key={item}>
+          <Linked text={item} />
+        </li>
       ))}
     </ul>
   )
@@ -122,13 +141,10 @@ export default function CvPage() {
             ))}
           </CvSection>
 
-          <CvSection title="Experience">
+          <CvSection title="Experience and Projects">
             {cvExperience.map((entry) => (
               <Entry key={entry.organisation} entry={entry} />
             ))}
-          </CvSection>
-
-          <CvSection title="Projects">
             {cvProjects.map((project) => (
               <div key={project.name} className="mb-4">
                 <div className="flex flex-wrap justify-between gap-x-4">

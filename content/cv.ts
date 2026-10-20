@@ -14,6 +14,12 @@ export interface CvEntry {
   bullets?: string[]
 }
 
+// Text in the bullets that the CV links, and where it links to
+export const cvLinks: Record<string, string> = {
+  'verifiedhandles.org': 'https://verifiedhandles.org',
+  'j-h.ai/york-wines': 'https://j-h.ai/york-wines',
+}
+
 export const cvEducation: CvEntry[] = [
   {
     organisation: 'University of York',
