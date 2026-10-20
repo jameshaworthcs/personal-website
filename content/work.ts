@@ -112,9 +112,18 @@ export const work: Work[] = [
           },
         },
         {
+          heading: 'The problem',
+          paragraphs: [
+            "The old site was MediaWiki on one server. Each entry's data lived in wikitext templates and was read back by fragile string parsing, and a second copy of the index sat in a separate MySQL table that had to be kept in step with the first. Edits passed through Node, a Python subprocess and a PHP endpoint before reaching the database, new entries came from a Python bot, and search was a substring match on titles.",
+            'The data itself was regular: a title, a subtitle, handles and identifiers for each of 155,000 entries. It needed one database, not two stores and a pile of scripts.',
+          ],
+        },
+        {
           heading: 'What I designed',
           paragraphs: [
-            'The site, its architecture, its hosting and its monitoring: production and staging behind Google Project Shield, nginx and Varnish; Prometheus, Grafana and Loki for metrics, logs and alerts; daily backups and moderated editing.',
+            "One PostgreSQL database beside a TypeScript application (Hono), which renders HTML on the server. Public pages carry almost no JavaScript: the search bar is about 13 kB and the site script about 18 kB, and the editor's 413 kB loads only when someone presses Edit.",
+            'Every field records where its value came from, so the Wikidata sync never overwrites a hand edit. History is kept in three tiers: a verbatim archive of the old wiki, field-level changes from launch on, and an append-only audit log. Search runs in PostgreSQL itself, with trigram and full-text indexes, rather than a separate search service.',
+            'The site runs behind Google Project Shield, nginx and Varnish, and pages are purged by surrogate keys when an entry changes. Monitoring is self-hosted: Prometheus, Grafana, Loki and GlitchTip. Measured in 10/2026, a cached entry page answers in a median 56 ms and an uncached one in 70 ms.',
             'I also built JEMEDIA Accounts, the Go OAuth 2.0/OpenID Connect provider behind sign-in.',
           ],
           screenshot: {
@@ -124,9 +133,28 @@ export const work: Work[] = [
           },
         },
         {
+          heading: 'The migration',
+          paragraphs: [
+            'The old wiki held 1,602,200 revisions. 1,268,335 were bot counters on user pages, left out by design; the other 590,953, every revision of every entry, were carried over.',
+            "Every run of the migration ends in a gate: exact counts of entries and revisions, no revision cut off from its entry, and a re-parse of every page's latest version to check that each subtitle, image, description, handle and Wikidata ID reached the new database. A failure stops the run. Before switching the old server off, I checked that its final dumps matched the migration's source: all 117 tables had the same row counts.",
+            'The checks missed one case. Twelve pages were transclusions the migration skipped, so those entries went live empty, though their content was safe in the archive. I found them in 10/2026 and restored them the same day.',
+            'The new site went live in 09/2026 by pointing the proxy at the new server. The old one kept running for a week as the way back, then was switched off.',
+          ],
+        },
+        {
           heading: 'How I built it',
           paragraphs: [
-            'With parallel Claude Code agents, each in its own clone, with every change gated by tests and staging before release.',
+            'I designed it, writing the design first in 06/2026, and built it with Claude Code. Since launch, development has run as a pipeline of parallel agents. Each task gets its own clone, database and ports. A worker must reproduce a bug and add a regression test that fails before fixing it. A script, not an agent, merges finished work into staging and re-runs the whole gate: typecheck, lint, build and about 10,000 tests on a fresh database. Nothing reaches production until I approve a release.',
+            'In the month after launch that pipeline merged 1,307 tasks and shipped 58 releases.',
+          ],
+        },
+        {
+          heading: 'What went wrong, and what I changed',
+          paragraphs: [
+            "Parallel agents sharing one checkout overwrote each other's work: a git stash mixed up two runs, and a reset deleted a good merge. I moved every run into its own clone and made one script the only thing that writes to staging.",
+            "A shared development database hid about 317 integration tests that were silently skipped. Each gate now gets its own throwaway database and fails if it doesn't have one.",
+            'One schema migration held a lock for 48 seconds and 16 requests failed. Changes to big tables now follow a separate, expand-then-contract rule.',
+            'Moving production to a new server in 10/2026 took the site offline for about 34 minutes, longer than planned: the edge proxy reached the new server over HTTPS, not the HTTP the runbook assumed. The move script now sets up and checks HTTPS before any switch.',
           ],
         },
         {
@@ -155,6 +183,7 @@ export const work: Work[] = [
       lede: 'An MCP server, listed in the MCP Registry, for running the Verified Handles directory with AI agents. I run the live directory with AI agents through it.',
       facts: [
         { label: 'Part of', value: 'Verified Handles' },
+        { label: 'When', value: '09/2026 – Present' },
         {
           label: 'Registry name',
           value: 'org.verifiedhandles/verified-handles',
@@ -162,18 +191,38 @@ export const work: Work[] = [
       ],
       sections: [
         {
+          heading: 'What it is',
+          paragraphs: [
+            "An MCP server that lets AI agents read and run the directory through the same routes and permission checks as the website. A tool never touches the database: it sends the app the request a person would, as the key's owner, so an agent can do nothing its owner couldn't do in a browser.",
+          ],
+        },
+        {
           heading: 'The safety model',
           bullets: [
-            'Writes are dry runs by default.',
-            'Destructive changes need confirmation.',
-            "An agent never acts above its user's role.",
-            'Every write is audited.',
+            'Dry runs by default. A write shows the change, the exact request it would send and whether this account may make it, and changes nothing.',
+            "Confirmation for destructive changes. Deleting, merging or blocking is refused unless confirm names the exact target the dry run named: the entry's ID, the account's ID, or for a site-wide change the site's own host, so a call written for staging fails on production.",
+            "Never above its user's role. A key acts at the lower of its own ceiling and its owner's current role, so demoting someone limits their keys from the next request.",
+            'Every write audited, with the key and the tool that made it.',
+            'Limits and an off switch. Keys expire within 90 days, requests are rate-limited, and a kill switch takes the site offline.',
+          ],
+        },
+        {
+          heading: 'Using it',
+          paragraphs: [
+            'I run the live directory through it. In 10/2026 a dry run and one confirmed call fixed the Goodreads link template, repairing dead links on 5,624 handles, and an agent merged a duplicate entry after its dry run named the entry to confirm.',
+            "The guards hold. When an agent using a key tried to approve a change on staging, it was refused, because keys can't approve changes, and nothing was written.",
+          ],
+        },
+        {
+          heading: 'In numbers',
+          paragraphs: [
+            '190 tests for the MCP layer. 76 releases in its first month, from 1.0.0 in 09/2026 to 1.73.0 in 10/2026. Listed in the MCP Registry since 10/2026.',
           ],
         },
         {
           heading: 'How agents connect',
           paragraphs: [
-            "Public reads need no key. A read-only key, or a key with a role ceiling, limits what an agent can do. Claude, ChatGPT, VS Code and Cursor can sign in with OAuth instead of a key, and there's a Claude Desktop extension.",
+            "Public reads need no key. Keys can be read-only or capped at a role, and expire within 90 days. Claude, ChatGPT, VS Code and Cursor can sign in with OAuth instead of a key, and there's a Claude Desktop extension.",
           ],
           screenshot: {
             name: 'vh-mcp',
