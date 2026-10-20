@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { SiteHeader } from '@/components/site-header'
 import { Footer } from '@/components/footer'
 import { Tags } from '@/components/tags'
+import { Screenshot } from '@/components/screenshot'
 import { workPages } from '@/content/work'
 
 type Params = { slug: string }
@@ -135,6 +136,7 @@ export default async function WorkPage({
                 ))}
               </ul>
             )}
+            {section.screenshot && <Screenshot {...section.screenshot} />}
           </section>
         ))}
 
