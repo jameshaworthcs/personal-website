@@ -61,12 +61,12 @@ deploy, CI checks that `/`, `/york-wines` and `/cv.pdf` still answer.
 
 - Facts live in `content/` and match my CV; `content/cv.ts` is the CV word
   for word.
-- `public/cv.pdf` is the public build of my CV: the same page as the one I
-  send, without my phone number.
-- `/york-wines` is linked from my CV, so its URL must not change. The video is
-  served from `video.j-h.ai`.
-- To change the photo, replace `assets/photo.jpg` (square) and run
-  `npm run images`.
+- `public/cv.pdf` is the public build of my CV.
+- `/york-wines` is linked from my CV, so its URL must not change. The video,
+  with its captions burned in, is served from `video.j-h.ai`.
+- To change the photo, replace `assets/photo.jpg` (any shape: 1:1 and 4:5 both
+  work) and run `npm run images`, which also records its shape in
+  `content/photo.ts`.
 
 ## Licence
 

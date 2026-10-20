@@ -6,6 +6,8 @@ import { Experience } from '@/components/experience'
 import { Education } from '@/components/education'
 import { Tags } from '@/components/tags'
 import { Footer } from '@/components/footer'
+import { Photo } from '@/components/photo'
+import { photo } from '@/content/photo'
 import { figures, profile } from '@/content/profile'
 import { skills } from '@/content/skills'
 import { work } from '@/content/work'
@@ -24,7 +26,7 @@ function structuredData() {
       name: profile.name,
       url: profile.url,
       jobTitle: profile.role,
-      image: `${profile.url}/img/photo-416.jpg`,
+      image: `${profile.url}/img/photo-${photo.widths.at(-1)}.jpg`,
       sameAs: [profile.linkedin, profile.github, profile.verifiedHandles],
     },
   }
@@ -40,7 +42,7 @@ export default function Home() {
       <SiteHeader />
 
       <main id="main" className="mx-auto w-full max-w-3xl grow px-4">
-        <section className="grid gap-8 pt-12 pb-10 sm:grid-cols-[1fr_104px] sm:pt-16">
+        <section className="grid gap-8 pt-12 pb-10 sm:grid-cols-[1fr_120px] sm:pt-16">
           <div>
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
               {profile.name}
@@ -79,23 +81,7 @@ export default function Home() {
               </a>
             </div>
           </div>
-          <picture className="hidden sm:block">
-            <source
-              type="image/avif"
-              srcSet="/img/photo-104.avif 1x, /img/photo-208.avif 2x, /img/photo-312.avif 3x"
-            />
-            <source
-              type="image/webp"
-              srcSet="/img/photo-104.webp 1x, /img/photo-208.webp 2x, /img/photo-312.webp 3x"
-            />
-            <img
-              src="/img/photo-208.jpg"
-              alt={profile.name}
-              width={104}
-              height={104}
-              className="rounded-xl border"
-            />
-          </picture>
+          <Photo alt={profile.name} />
         </section>
 
         <ul className="mb-16 grid grid-cols-2 border-y sm:grid-cols-4">

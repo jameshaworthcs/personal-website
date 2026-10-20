@@ -1,80 +1,83 @@
-'use client'
-
-import React, { useRef, useState } from 'react'
+import type React from 'react'
 import Link from 'next/link'
+import { SiteHeader } from '@/components/site-header'
+import { Footer } from '@/components/footer'
+import { YorkWinesPlayer } from '@/components/york-wines-player'
 
-const videoSrc = 'https://video.j-h.ai/James-Haworth-York-Wines-CV.mp4'
+const video = 'https://video.j-h.ai/James-Haworth-York-Wines-CV-1080p.mp4'
+
+function Time({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="mr-1.5 font-mono text-sm text-muted-foreground tabular-nums">
+      {children}
+    </span>
+  )
+}
 
 export default function YorkWinesPage() {
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const [started, setStarted] = useState(false)
-
-  const playVideo = () => {
-    const video = videoRef.current
-    if (!video) return
-    setStarted(true)
-    // The button disappears, so keep keyboard focus on the player
-    video.focus()
-    video.play().catch((e) => console.error('Error playing video:', e))
-  }
-
   return (
-    <div className="min-h-screen bg-[#181818] text-[#e0e0e0]">
-      <header className="mx-auto max-w-[960px] p-4">
-        <Link href="/" className="hover:underline">
-          ← James Haworth
-        </Link>
-      </header>
-      <main id="main" className="mx-auto max-w-[960px] px-4">
-        <h1 className="mt-2 mb-2 text-[1.75rem] font-bold">
+    <div className="flex min-h-screen flex-col">
+      <SiteHeader />
+
+      <main
+        id="main"
+        className="mx-auto w-full max-w-3xl grow px-4 pt-10 pb-16"
+      >
+        <p className="mb-3 font-mono text-sm text-muted-foreground">
+          <Link href="/#experience" className="hover:text-foreground">
+            ← Experience
+          </Link>
+        </p>
+        <h1 className="text-4xl font-bold tracking-tight">
           York Wines: the owner on my work
         </h1>
-        <p className="mb-5 leading-normal text-[#c8c8c8]">
+        <p className="mt-4 mb-8 text-lg leading-relaxed text-muted-foreground">
           I worked at York Wines as Web Development Intern (03/2024 – 06/2024),
           then Website/SEO Strategist (06/2024 – 05/2025).
         </p>
-        <div className="relative bg-black">
-          {/* Before the player, so it is the first thing Tab reaches */}
-          {!started && (
-            <button
-              type="button"
-              onClick={playVideo}
-              aria-label="Play the video (43 seconds)"
-              className="absolute inset-0 z-[1] m-auto h-[100px] w-[100px] cursor-pointer rounded-full focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-white motion-safe:transition-transform motion-safe:hover:scale-110"
-            >
-              <svg
-                viewBox="0 0 100 100"
-                width="100"
-                height="100"
-                aria-hidden="true"
-              >
-                <circle cx="50" cy="50" r="45" fill="rgba(0,0,0,0.7)" />
-                <polygon points="40,30 70,50 40,70" fill="white" />
-              </svg>
-            </button>
-          )}
-          <video
-            ref={videoRef}
-            controls
-            preload="none"
-            poster="/york-wines-poster.webp"
-            width={1280}
-            height={720}
-            onPlay={() => setStarted(true)}
-            className="block h-auto w-full"
+
+        <YorkWinesPlayer src={video} />
+        <p className="mt-2 text-sm text-muted-foreground">
+          43 seconds, with captions. Filmed in July 2024 by Paul Richardson (
+          <a
+            href="https://instagram.com/ambientcinema"
+            className="underline underline-offset-4"
           >
-            <source src={videoSrc} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
+            @ambientcinema
+          </a>
+          ) for the University of York.{' '}
+          <a href={video} download className="underline underline-offset-4">
+            Download the video (MP4, 13 MB)
+          </a>
+        </p>
+
+        <ul className="my-10 grid gap-4 sm:grid-cols-2">
+          <li className="border-t-2 border-link pt-3">
+            <span className="block text-2xl font-semibold">30%</span>
+            <span className="text-muted-foreground">
+              growth in online shop sales
+            </span>
+          </li>
+          <li className="border-t-2 border-link pt-3">
+            <span className="block text-2xl font-semibold">20%</span>
+            <span className="text-muted-foreground">
+              growth in website traffic
+            </span>
+          </li>
+        </ul>
+        <p className="mb-10 text-lg leading-relaxed">
+          Through SEO, site integrations and UX work. York Wines offered me a
+          contract after my internship, then an extension.
+        </p>
+
         <section
-          className="mx-auto mt-8 max-w-[720px] leading-relaxed [&_p]:mb-3"
           aria-labelledby="transcript-heading"
+          className="leading-relaxed [&_p]:mb-3"
         >
-          <h2 id="transcript-heading" className="mb-3 text-xl font-semibold">
+          <h2 id="transcript-heading" className="mb-3 text-2xl font-semibold">
             Transcript
           </h2>
-          <p className="text-[#a8a8a8]">
+          <p className="text-muted-foreground">
             Alex Edwards, the owner of York Wines, and James Haworth talk about
             James&apos;s work on the York Wines website. Filmed on 24 July 2024
             by Paul Richardson for the University of York.
@@ -103,33 +106,8 @@ export default function YorkWinesPage() {
           </p>
         </section>
       </main>
-      <footer className="mx-auto my-5 max-w-[960px] border-t border-[#444] px-4 pt-2.5 md:flex md:justify-between">
-        <div>
-          <a href={videoSrc} download className="hover:underline">
-            Download the video (MP4, 106 MB)
-          </a>{' '}
-          |{' '}
-          <Link href="/" className="hover:underline">
-            Back to j-h.ai
-          </Link>
-        </div>
-        <div>
-          Filmed July 2024 by Paul Richardson (
-          <a
-            href="https://instagram.com/ambientcinema"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:underline"
-          >
-            @ambientcinema
-          </a>
-          )
-        </div>
-      </footer>
+
+      <Footer />
     </div>
   )
-}
-
-function Time({ children }: { children: React.ReactNode }) {
-  return <span className="mr-1 text-[#a8a8a8] tabular-nums">{children}</span>
 }
