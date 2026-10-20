@@ -1,114 +1,117 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
+import Link from 'next/link'
+
+const videoSrc = 'https://video.j-h.ai/James-Haworth-York-Wines-CV.mp4'
 
 export default function YorkWinesPage() {
-  const [isPlaying, setIsPlaying] = useState(false)
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const [started, setStarted] = useState(false)
 
   const playVideo = () => {
-    const videoPlayer = document.getElementById(
-      'videoPlayer'
-    ) as HTMLVideoElement
-    if (videoPlayer) {
-      videoPlayer.style.display = 'block'
-      videoPlayer.play().catch((e) => console.error('Error playing video:', e))
-      setIsPlaying(true)
-    }
-  }
-
-  const handleVideoEnd = () => {
-    const videoPlayer = document.getElementById(
-      'videoPlayer'
-    ) as HTMLVideoElement
-    if (videoPlayer) {
-      videoPlayer.style.display = 'none'
-      setIsPlaying(false)
-    }
+    const video = videoRef.current
+    if (!video) return
+    setStarted(true)
+    // The button disappears, so keep keyboard focus on the player
+    video.focus()
+    video.play().catch((e) => console.error('Error playing video:', e))
   }
 
   return (
-    <div className="york-wines-container">
-      <div className="video-container">
-        {!isPlaying && (
-          <>
-            <img
-              className="thumbnail"
-              id="thumbnail"
-              src="https://video.j-h.ai/YK-video-thumbnail.png"
-              alt="Video thumbnail for York Wines"
+    <div className="min-h-screen bg-[#181818] text-[#e0e0e0]">
+      <header className="mx-auto max-w-[960px] p-4">
+        <Link href="/" className="hover:underline">
+          ← James Haworth
+        </Link>
+      </header>
+      <main id="main" className="mx-auto max-w-[960px] px-4">
+        <h1 className="mt-2 mb-2 text-[1.75rem] font-bold">
+          York Wines: the owner on my work
+        </h1>
+        <p className="mb-5 leading-normal text-[#c8c8c8]">
+          I worked at York Wines as Web Development Intern (03/2024 – 06/2024),
+          then Website/SEO Strategist (06/2024 – 05/2025).
+        </p>
+        <div className="relative bg-black">
+          {/* Before the player, so it is the first thing Tab reaches */}
+          {!started && (
+            <button
+              type="button"
               onClick={playVideo}
-            />
-            <div
-              className="play-button"
-              id="playButton"
-              onClick={playVideo}
-              role="button"
-              tabIndex={0}
-              aria-label="Play video"
+              aria-label="Play the video (43 seconds)"
+              className="absolute inset-0 z-[1] m-auto h-[100px] w-[100px] cursor-pointer rounded-full focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-white motion-safe:transition-transform motion-safe:hover:scale-110"
             >
-              <svg viewBox="0 0 100 100" width="100" height="100">
+              <svg
+                viewBox="0 0 100 100"
+                width="100"
+                height="100"
+                aria-hidden="true"
+              >
                 <circle cx="50" cy="50" r="45" fill="rgba(0,0,0,0.7)" />
                 <polygon points="40,30 70,50 40,70" fill="white" />
               </svg>
-            </div>
-          </>
-        )}
-        <video
-          controls
-          id="videoPlayer"
-          style={{ display: isPlaying ? 'block' : 'none' }}
-          onEnded={handleVideoEnd}
-        >
-          <source
-            src="https://video.j-h.ai/James-Haworth-York-Wines-CV.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-      <section className="transcript" aria-labelledby="transcript-heading">
-        <h2 id="transcript-heading">Transcript</h2>
-        <p className="intro">
-          Alex Edwards, the owner of York Wines, and James Haworth talk about
-          James&apos;s work on the York Wines website. Filmed on 24 July 2024 by
-          Paul Richardson for the University of York.
-        </p>
-        <p>
-          <span className="time">0:02</span> <strong>Alex Edwards:</strong>{' '}
-          I&apos;m Alex Edwards and I&apos;m the owner of York Wines. We&apos;ve
-          had a website for a long time, and we wanted to give it the best shot
-          at being as successful as possible.
-        </p>
-        <p>
-          <span className="time">0:11</span> <strong>James Haworth:</strong> I
-          was basically managing the website, trying to get it to rank better in
-          search results and also optimising the content and the user flow, so
-          that when people visited the website they&apos;d have just a really
-          seamless experience.
-        </p>
-        <p>
-          <span className="time">0:23</span> <strong>Alex Edwards:</strong>{' '}
-          James has had a really positive impact on the business, so much so
-          that we went on to offer James a permanent fixed contract to continue
-          the fantastic work that he had started.
-        </p>
-        <p>
-          <span className="time">0:35</span>{' '}
-          <em>Closing card: Thank you for watching.</em>
-        </p>
-      </section>
-      <footer>
-        <div>
-          <a
-            href="https://video.j-h.ai/James-Haworth-York-Wines-CV.mp4"
-            download
+            </button>
+          )}
+          <video
+            ref={videoRef}
+            controls
+            preload="none"
+            poster="/york-wines-poster.webp"
+            width={1280}
+            height={720}
+            onPlay={() => setStarted(true)}
+            className="block h-auto w-full"
           >
-            Download from video.j-h.ai
+            <source src={videoSrc} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <section
+          className="mx-auto mt-8 max-w-[720px] leading-relaxed [&_p]:mb-3"
+          aria-labelledby="transcript-heading"
+        >
+          <h2 id="transcript-heading" className="mb-3 text-xl font-semibold">
+            Transcript
+          </h2>
+          <p className="text-[#a8a8a8]">
+            Alex Edwards, the owner of York Wines, and James Haworth talk about
+            James&apos;s work on the York Wines website. Filmed on 24 July 2024
+            by Paul Richardson for the University of York.
+          </p>
+          <p>
+            <Time>0:02</Time> <strong>Alex Edwards:</strong> I&apos;m Alex
+            Edwards and I&apos;m the owner of York Wines. We&apos;ve had a
+            website for a long time, and we wanted to give it the best shot at
+            being as successful as possible.
+          </p>
+          <p>
+            <Time>0:11</Time> <strong>James Haworth:</strong> I was basically
+            managing the website, trying to get it to rank better in search
+            results and also optimising the content and the user flow, so that
+            when people visited the website they&apos;d have just a really
+            seamless experience.
+          </p>
+          <p>
+            <Time>0:23</Time> <strong>Alex Edwards:</strong> James has had a
+            really positive impact on the business, so much so that we went on
+            to offer James a permanent fixed contract to continue the fantastic
+            work that he had started.
+          </p>
+          <p>
+            <Time>0:35</Time> <em>Closing card: Thank you for watching.</em>
+          </p>
+        </section>
+      </main>
+      <footer className="mx-auto my-5 max-w-[960px] border-t border-[#444] px-4 pt-2.5 md:flex md:justify-between">
+        <div>
+          <a href={videoSrc} download className="hover:underline">
+            Download the video (MP4, 106 MB)
           </a>{' '}
           |{' '}
-          <a href="https://j-h.ai" target="_blank" rel="noopener noreferrer">
-            Visit j-h.ai
-          </a>
+          <Link href="/" className="hover:underline">
+            Back to j-h.ai
+          </Link>
         </div>
         <div>
           Filmed July 2024 by Paul Richardson (
@@ -116,109 +119,17 @@ export default function YorkWinesPage() {
             href="https://instagram.com/ambientcinema"
             target="_blank"
             rel="noopener noreferrer"
+            className="hover:underline"
           >
             @ambientcinema
           </a>
           )
         </div>
       </footer>
-      <style jsx>{`
-        .york-wines-container {
-          background-color: #181818;
-          color: #e0e0e0;
-          font-family: Arial, sans-serif;
-          margin: 0;
-          padding: 0;
-          min-height: 100vh;
-        }
-
-        .video-container {
-          position: relative;
-          width: 100%;
-          margin: auto;
-          background-color: #000;
-        }
-
-        .thumbnail {
-          width: 100%;
-          cursor: pointer;
-          display: block;
-        }
-
-        .play-button {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          width: 100px;
-          height: 100px;
-          cursor: pointer;
-          z-index: 10;
-          transition: transform 0.2s ease;
-        }
-
-        .play-button:hover {
-          transform: translate(-50%, -50%) scale(1.1);
-        }
-
-        video {
-          width: 100%;
-          display: block;
-        }
-
-        .transcript {
-          max-width: 720px;
-          margin: 32px auto 0;
-          padding: 0 16px;
-          line-height: 1.6;
-        }
-
-        .transcript h2 {
-          font-size: 1.25rem;
-          font-weight: 600;
-          margin: 0 0 12px;
-        }
-
-        .transcript p {
-          margin: 0 0 12px;
-        }
-
-        .transcript .intro {
-          color: #a8a8a8;
-        }
-
-        .transcript .time {
-          color: #a8a8a8;
-          font-variant-numeric: tabular-nums;
-          margin-right: 4px;
-        }
-
-        footer {
-          display: flex;
-          justify-content: space-between;
-          margin: 20px auto;
-          padding-left: 10px;
-          padding-right: 10px;
-          padding-top: 10px;
-          border-top: 1px solid #444;
-        }
-
-        footer a {
-          color: inherit;
-          text-decoration: none;
-          transition: text-decoration 0.3s ease;
-        }
-
-        footer a:hover {
-          text-decoration: underline;
-        }
-
-        @media only screen and (max-width: 768px) {
-          footer {
-            display: block;
-          }
-        }
-      `}</style>
     </div>
   )
+}
+
+function Time({ children }: { children: React.ReactNode }) {
+  return <span className="mr-1 text-[#a8a8a8] tabular-nums">{children}</span>
 }
