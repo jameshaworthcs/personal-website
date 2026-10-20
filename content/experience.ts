@@ -31,8 +31,15 @@ export const experiences: Experience[] = [
     companyUrl: 'https://etas.com',
     period: '07/2025 – 07/2026',
     description:
-      "Year-long industrial placement in the Field Application Engineering team. Since July 2025 I've resolved 170+ support tickets from car makers (OEMs) and Tier-1 suppliers worldwide on RTA-CAR (AUTOSAR Classic): reproducing faults, finding root causes and escalating around 80 defects to R&D, most of them confirmed. I overhauled the team's long-broken Jenkins CI/CD pipeline (Groovy), which builds, tests and releases the team's customer demo projects, cutting release time from several hours to under an hour; it became the team standard. I led SKDocs, a public-facing documentation site built with MkDocs and Jenkins, now ready to go live. My supervisor rated me as \"consistently contributing at a level comparable to his full-time peers\".",
-    tags: ['RTA-CAR (AUTOSAR Classic)', 'Jenkins', 'Groovy', 'MkDocs'],
+      "Year-long industrial placement in the Field Application Engineering team. Since July 2025 I've resolved 170+ support tickets from car makers (OEMs) and Tier-1 suppliers worldwide on RTA-CAR (AUTOSAR Classic): reproducing faults, finding root causes and escalating around 80 defects to R&D, most of them confirmed. I overhauled the team's long-broken Jenkins CI/CD pipeline (Groovy), which builds, tests and releases the team's customer demo projects, cutting release time from several hours to under an hour; it became the team standard. I asked for a taster with ETAS's internal DevOps team and built a Grafana dashboard tracking a migration off legacy Bosch tools, pre-aggregating the data in InfluxDB; the team lead proposed one for each product field. I led SKDocs, a public-facing documentation site built with MkDocs and Jenkins, now ready to go live. My supervisor rated me as \"consistently contributing at a level comparable to his full-time peers\".",
+    tags: [
+      'RTA-CAR (AUTOSAR Classic)',
+      'Jenkins',
+      'Groovy',
+      'MkDocs',
+      'Grafana',
+      'Terraform',
+    ],
   },
   {
     title: 'Founder & Lead Developer',

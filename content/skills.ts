@@ -16,7 +16,7 @@ export const skills = [
   {
     group: 'DevOps & Tools',
     items:
-      'Jenkins, Git, Docker, Linux, Grafana, Jira Service Management, Google Cloud Platform, AWS',
+      'Jenkins, Git, Docker, Linux, Grafana, Terraform, Jira Service Management, Google Cloud, AWS',
   },
   {
     group: 'Automotive',
