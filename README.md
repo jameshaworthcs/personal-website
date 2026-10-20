@@ -1,94 +1,45 @@
-# J-H.AI Personal website
+# j-h.ai
 
-This is the personal website of James Haworth, located at [j-h.ai](https://j-h.ai)
+The personal website of James Haworth, live at [j-h.ai](https://j-h.ai).
 
-## Tech Stack
+## Stack
 
-- **Framework**: [Next.js 14](https://nextjs.org/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **UI Components**: [Radix UI](https://www.radix-ui.com/)
+- [Next.js 16](https://nextjs.org/) (App Router), exported as a static site
+- React 19 and TypeScript
+- [Tailwind CSS 4](https://tailwindcss.com/)
+- Hosted on GitHub Pages; visits counted with a self-hosted
+  [Plausible](https://plausible.io/) instance (no cookies)
 
-## Development
+## Running it
 
-### Prerequisites
-
-- Node.js 20.x or later
-- npm 10.x or later
-
-### Getting Started
-
-1. Clone the repository:
+Requires Node.js 24.
 
 ```bash
-git clone https://github.com/jameshaworthcs/personal-website.git
-cd personal-website
+npm ci
+npm run dev       # http://localhost:3000
+npm run build     # static site in ./out
 ```
 
-2. Install dependencies:
+## Checks
+
+CI runs these on every pull request, and they must pass before the build:
 
 ```bash
-npm install
+npm run format:check   # Prettier
+npm run lint           # ESLint
+npm run typecheck      # TypeScript
 ```
 
-3. Start the development server:
-
-```bash
-npm run dev
-```
-
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-### Available Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build production bundle
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint
-- `npm run typecheck` - Run TypeScript type checking
-- `npm run format` - Format code with Prettier
-- `npm run format:check` - Check code formatting
+`npm run build` type-checks too.
 
 ## Deployment
 
-This site is automatically deployed to GitHub Pages when changes are pushed to the main branch.
+Every push to `main` builds the site and deploys `./out` to GitHub Pages
+(`.github/workflows/ci.yml`). Changes go through pull requests.
 
-### Manual Deployment
+## Content
 
-1. Build the site locally:
-
-```bash
-npm run build
-```
-
-2. The static files will be generated in the `out` directory.
-
-3. Push your changes to the main branch:
-
-```bash
-git push origin main
-```
-
-4. The GitHub Actions workflow will automatically:
-   - Build the site
-   - Deploy to GitHub Pages
-   - Make it available at https://j-h.ai
-
-### GitHub Pages Setup
-
-To enable GitHub Pages deployment:
-
-1. Go to your repository settings
-2. Navigate to "Pages" section
-3. Under "Build and deployment":
-   - Source: "GitHub Actions"
-   - Branch: `main`
-
-## Quality Checks
-
-This project uses several tools to ensure code quality:
-
-- **TypeScript** for static type checking
-- **ESLint** for code linting
-- **Prettier** for code formatting
-
-These checks run automatically on pull requests through GitHub Actions.
+- `public/cv.pdf` is the public build of my CV: the same page as the one I send,
+  without my phone number.
+- `/york-wines` is linked from my CV, so its URL must not change. The video
+  itself is served from `video.j-h.ai`.
