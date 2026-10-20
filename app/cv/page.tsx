@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import type React from 'react'
 import { Download } from 'lucide-react'
+import { A } from '@/components/a'
 import { SiteHeader } from '@/components/site-header'
 import { Footer } from '@/components/footer'
 import { profile } from '@/content/profile'
@@ -8,6 +9,7 @@ import { skills } from '@/content/skills'
 import {
   cvEducation,
   cvExperience,
+  cvLinks,
   cvProjects,
   type CvEntry,
 } from '@/content/cv'
@@ -38,12 +40,30 @@ function CvSection({
   )
 }
 
+// A bullet's text, with the parts the CV links turned into links
+function Linked({ text }: { text: string }) {
+  const label = Object.keys(cvLinks).find((label) => text.includes(label))
+  if (!label) return text
+  const at = text.indexOf(label)
+  return (
+    <>
+      {text.slice(0, at)}
+      <A href={cvLinks[label]} className="underline">
+        {label}
+      </A>
+      <Linked text={text.slice(at + label.length)} />
+    </>
+  )
+}
+
 function Bullets({ items }: { items: string[] }) {
   if (items.length === 0) return null
   return (
     <ul className="mt-1.5 list-disc space-y-1 pl-5 text-[15px] leading-snug print:text-[10pt]">
       {items.map((item) => (
-        <li key={item}>{item}</li>
+        <li key={item}>
+          <Linked text={item} />
+        </li>
       ))}
     </ul>
   )
@@ -88,14 +108,14 @@ export default function CvPage() {
       >
         <div className="mb-8 flex flex-wrap items-center justify-between gap-3 print:hidden">
           <p className="text-muted-foreground">The same page as the PDF.</p>
-          <a
+          <A
             href="/cv.pdf"
             download="James Haworth CV.pdf"
             className="inline-flex items-center gap-2 rounded-lg bg-accent-strong px-4 py-2.5 font-medium text-white hover:bg-accent-strong/90"
           >
             <Download className="h-4 w-4" aria-hidden="true" />
             Download CV (PDF)
-          </a>
+          </A>
         </div>
 
         <article className="[overflow-wrap:anywhere]">
@@ -108,9 +128,9 @@ export default function CvPage() {
               {contacts.map((contact, i) => (
                 <span key={contact.href}>
                   {i > 0 && ' | '}
-                  <a href={contact.href} className="underline">
+                  <A href={contact.href} className="underline">
                     {contact.label}
-                  </a>
+                  </A>
                 </span>
               ))}
             </p>
@@ -122,13 +142,10 @@ export default function CvPage() {
             ))}
           </CvSection>
 
-          <CvSection title="Experience">
+          <CvSection title="Experience and Projects">
             {cvExperience.map((entry) => (
               <Entry key={entry.organisation} entry={entry} />
             ))}
-          </CvSection>
-
-          <CvSection title="Projects">
             {cvProjects.map((project) => (
               <div key={project.name} className="mb-4">
                 <div className="flex flex-wrap justify-between gap-x-4">
@@ -136,9 +153,9 @@ export default function CvPage() {
                     <span className="font-bold">{project.name}</span> |{' '}
                     <span className="italic">{project.stack}</span>
                   </h3>
-                  <a href={project.link.href} className="underline">
+                  <A href={project.link.href} className="underline">
                     {project.link.label}
-                  </a>
+                  </A>
                 </div>
                 <Bullets items={project.bullets} />
               </div>

@@ -1,5 +1,6 @@
 import type React from 'react'
 import Link from 'next/link'
+import { A } from '@/components/a'
 import { SiteHeader } from '@/components/site-header'
 import { Footer } from '@/components/footer'
 import { YorkWinesPlayer } from '@/components/york-wines-player'
@@ -39,16 +40,16 @@ export default function YorkWinesPage() {
         <YorkWinesPlayer src={video} />
         <p className="mt-2 text-sm text-muted-foreground">
           43 seconds, with captions. Filmed in July 2024 by Paul Richardson (
-          <a
+          <A
             href="https://instagram.com/ambientcinema"
             className="underline underline-offset-4"
           >
             @ambientcinema
-          </a>
+          </A>
           ) for the University of York.{' '}
-          <a href={video} download className="underline underline-offset-4">
+          <A href={video} download className="underline underline-offset-4">
             Download the video (MP4, 13 MB)
-          </a>
+          </A>
         </p>
 
         <ul className="my-10 grid gap-4 sm:grid-cols-2">

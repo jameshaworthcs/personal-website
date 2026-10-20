@@ -1,3 +1,4 @@
+import { A } from '@/components/a'
 import { screenshots, type ScreenshotName } from '@/content/screenshots'
 
 // The blurred placeholder paints at once; the browser then fetches only the
@@ -43,9 +44,9 @@ export function Screenshot({
       </div>
       <figcaption className="mt-2 text-sm text-muted-foreground">
         {caption}{' '}
-        <a href={full} className="underline underline-offset-4">
+        <A href={full} className="underline underline-offset-4">
           Full size ({shot.width} × {shot.height})
-        </a>
+        </A>
       </figcaption>
     </figure>
   )

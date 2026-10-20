@@ -1,4 +1,5 @@
 import { Fragment } from 'react'
+import { A } from '@/components/a'
 import { earlier, experiences } from '@/content/experience'
 import { Tags } from '@/components/tags'
 
@@ -25,9 +26,9 @@ export function Experience() {
             </div>
             <p className="text-muted-foreground">
               {exp.companyUrl ? (
-                <a href={exp.companyUrl} className="hover:text-foreground">
+                <A href={exp.companyUrl} className="hover:text-foreground">
                   {exp.company}
-                </a>
+                </A>
               ) : (
                 exp.company
               )}
@@ -37,12 +38,12 @@ export function Experience() {
               <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-1">
                 {exp.links.map((link) => (
                   <li key={link.href}>
-                    <a
+                    <A
                       href={link.href}
                       className="font-medium text-link underline underline-offset-4"
                     >
                       {link.label}
-                    </a>
+                    </A>
                   </li>
                 ))}
               </ul>

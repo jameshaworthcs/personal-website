@@ -2,10 +2,16 @@
 // usage: npm run check:cv [-- path/to/resume.tex]   (default ../resume/resume.tex)
 //
 // Errors: content/cv.ts must hold the CV word for word, in both directions.
+// app/cv/page.tsx must render the CV's section headings, in the same order.
 // Warnings: every figure and MM/YYYY date elsewhere in content/ should appear
 // in the CV (the Earlier list and residentials are expected to differ).
 import { readFile } from 'node:fs/promises'
-import { cvEducation, cvExperience, cvProjects } from '../content/cv.ts'
+import {
+  cvEducation,
+  cvExperience,
+  cvLinks,
+  cvProjects,
+} from '../content/cv.ts'
 import { skills } from '../content/skills.ts'
 
 const texPath = process.argv[2] ?? process.env.CV_TEX ?? '../resume/resume.tex'
@@ -106,6 +112,44 @@ for (const skill of skills) {
   }
 }
 
+// The links in the CV's bullets are the ones /cv adds to them
+const cvItemLinks = new Map()
+for (const item of tex.match(/\\resumeItem\{.*/g) ?? []) {
+  for (const [, href, label] of item.matchAll(
+    /\\href\{([^}]*)\}\{([^{}]*(?:\{[^{}]*\}[^{}]*)*)\}/g
+  )) {
+    cvItemLinks.set(plain(label), href)
+  }
+}
+for (const [label, href] of cvItemLinks) {
+  if (cvLinks[label] !== href) {
+    errors.push(
+      `Link differs: ${label} goes to ${href} in the CV, ${cvLinks[label] ?? 'nowhere'} on the site`
+    )
+  }
+}
+for (const label of Object.keys(cvLinks)) {
+  if (!cvItemLinks.has(label))
+    errors.push(`Linked on the site, not in the CV: ${label}`)
+}
+
+// The section headings /cv renders, in order, are the CV's \section{…}s
+const page = await readFile(
+  new URL('../app/cv/page.tsx', import.meta.url),
+  'utf8'
+)
+const siteHeadings = [...page.matchAll(/<CvSection\b([^>]*)>/g)].map(
+  ([tag, attrs]) =>
+    attrs.match(/\btitle="([^"]*)"/)?.[1] ??
+    `(no plain title in app/cv/page.tsx: ${tag})`
+)
+const cvHeadings = argsOf('section').map(([title]) => title)
+if (siteHeadings.join('\n') !== cvHeadings.join('\n')) {
+  errors.push(
+    `Section headings differ:\n           CV:   ${cvHeadings.join(' / ')}\n           site: ${siteHeadings.join(' / ')}`
+  )
+}
+
 // Figures and dates anywhere in content/ should be backed by the CV
 const warnings = []
 const content = await Promise.all(
@@ -124,7 +168,7 @@ for (const line of warnings) console.warn(`warning  ${line}`)
 for (const line of errors) console.error(`error    ${line}`)
 console.log(
   errors.length
-    ? `\n${errors.length} difference(s) between content/cv.ts and ${texPath}`
-    : `content/cv.ts matches ${texPath}`
+    ? `\n${errors.length} difference(s) between /cv and ${texPath}`
+    : `/cv matches ${texPath}`
 )
 process.exit(errors.length ? 1 : 0)

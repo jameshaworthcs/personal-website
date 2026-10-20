@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Download } from 'lucide-react'
+import { A } from '@/components/a'
 import { SiteHeader } from '@/components/site-header'
 import { Section } from '@/components/section'
 import { Experience } from '@/components/experience'
@@ -53,32 +54,32 @@ export default function Home() {
             <p className="mb-4 text-lg leading-relaxed">{profile.lede}</p>
             <p className="mb-7">{profile.target}</p>
             <div className="flex flex-wrap gap-2.5">
-              <a
+              <A
                 href="/cv.pdf"
                 download="James Haworth CV.pdf"
                 className={`${buttonBase} bg-accent-strong text-white hover:bg-accent-strong/90`}
               >
                 <Download className="h-4 w-4" aria-hidden="true" />
                 Download CV (PDF)
-              </a>
-              <a
+              </A>
+              <A
                 href={`mailto:${profile.email}`}
                 className={`${buttonBase} border hover:bg-muted`}
               >
                 {profile.email}
-              </a>
-              <a
+              </A>
+              <A
                 href={profile.linkedin}
                 className={`${buttonBase} border hover:bg-muted`}
               >
                 LinkedIn
-              </a>
-              <a
+              </A>
+              <A
                 href={profile.github}
                 className={`${buttonBase} border hover:bg-muted`}
               >
                 GitHub
-              </a>
+              </A>
             </div>
           </div>
           <Photo alt={profile.name} />
@@ -90,7 +91,7 @@ export default function Home() {
               key={figure.value}
               className={`${i % 2 === 1 ? 'border-l' : ''} ${i >= 2 ? 'border-t sm:border-t-0' : ''} ${i === 2 ? 'sm:border-l' : ''}`}
             >
-              <a
+              <A
                 href={figure.href}
                 className="block h-full px-4 py-4 hover:bg-muted/50"
               >
@@ -100,7 +101,7 @@ export default function Home() {
                 <span className="mt-1 block text-sm leading-snug text-muted-foreground">
                   {figure.label}
                 </span>
-              </a>
+              </A>
             </li>
           ))}
         </ul>
@@ -128,12 +129,12 @@ export default function Home() {
                   <ul className="flex flex-wrap gap-x-4 gap-y-1">
                     {item.links.map((link) => (
                       <li key={link.href}>
-                        <a
+                        <A
                           href={link.href}
                           className="font-medium text-link underline underline-offset-4"
                         >
                           {link.label}
-                        </a>
+                        </A>
                       </li>
                     ))}
                   </ul>
@@ -168,26 +169,26 @@ export default function Home() {
         <Section id="contact" title="Contact">
           <p className="mb-4 text-lg">
             Email is quickest:{' '}
-            <a
+            <A
               href={`mailto:${profile.email}`}
               className="font-medium text-link underline underline-offset-4"
             >
               {profile.email}
-            </a>
+            </A>
             . I&apos;m also on{' '}
-            <a
+            <A
               href={profile.linkedin}
               className="font-medium text-link underline underline-offset-4"
             >
               LinkedIn
-            </a>{' '}
+            </A>{' '}
             and{' '}
-            <a
+            <A
               href={profile.github}
               className="font-medium text-link underline underline-offset-4"
             >
               GitHub
-            </a>
+            </A>
             .
           </p>
           <p className="text-muted-foreground">
@@ -196,13 +197,13 @@ export default function Home() {
               its own page
             </Link>{' '}
             and as a{' '}
-            <a
+            <A
               href="/cv.pdf"
               download="James Haworth CV.pdf"
               className="underline underline-offset-4"
             >
               one-page PDF
-            </a>
+            </A>
             .
           </p>
         </Section>

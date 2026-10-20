@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test'
 import AxeBuilder from '@axe-core/playwright'
+import { isFollowed } from '../lib/links'
 
 // Every page a visitor can reach, plus the 404 page
 const pages = [
@@ -79,6 +80,23 @@ test('every internal link leads somewhere', async ({ page, request }) => {
     if (url.hash) {
       await page.goto(url.pathname)
       await expect(page.locator(url.hash), target).toHaveCount(1)
+    }
+  }
+})
+
+test('only links off our own domains are nofollow', async ({ page }) => {
+  for (const path of pages) {
+    await page.goto(path)
+    const links = await page.$$eval('a[href]', (anchors) =>
+      anchors.map((a) => ({
+        href: a.getAttribute('href') ?? '',
+        rel: (a.getAttribute('rel') ?? '').split(/\s+/),
+      }))
+    )
+    for (const { href, rel } of links) {
+      expect(rel.includes('nofollow'), `${path}: ${href}`).toBe(
+        !isFollowed(href)
+      )
     }
   }
 })
