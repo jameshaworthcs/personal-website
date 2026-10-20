@@ -1,196 +1,225 @@
-import Image from 'next/image'
-import { Download, FileText, Mail } from 'lucide-react'
-import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import Link from 'next/link'
+import { Download } from 'lucide-react'
 import { SiteHeader } from '@/components/site-header'
-import { ExperienceTimeline } from '@/components/experience-timeline'
+import { Section } from '@/components/section'
+import { Experience } from '@/components/experience'
 import { Education } from '@/components/education'
+import { Tags } from '@/components/tags'
 import { Footer } from '@/components/footer'
+import { figures, profile } from '@/content/profile'
+import { skills } from '@/content/skills'
+import { work } from '@/content/work'
+import { lastUpdated } from '@/lib/last-updated'
 
-const skills = [
-  {
-    group: 'Languages',
-    items: 'Python, TypeScript/JavaScript, Go, Java, C, Groovy, SQL, HTML/CSS',
-  },
-  {
-    group: 'Frameworks & Data',
-    items: 'React, Next.js, Node.js, PostgreSQL, MkDocs',
-  },
-  {
-    group: 'AI',
-    items:
-      'LLM APIs, Model Context Protocol (MCP), Claude Code, GitHub Copilot, llama.cpp',
-  },
-  {
-    group: 'DevOps & Tools',
-    items:
-      'Jenkins, Git, Docker, Linux, Grafana, Jira Service Management, Google Cloud Platform, AWS',
-  },
-  {
-    group: 'Automotive',
-    items: 'RTA-CAR (AUTOSAR Classic), ISO 26262 functional-safety training',
-  },
-]
+const buttonBase =
+  'inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 font-medium transition-colors'
+
+function structuredData() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ProfilePage',
+    dateModified: lastUpdated().toISOString(),
+    mainEntity: {
+      '@type': 'Person',
+      name: profile.name,
+      url: profile.url,
+      jobTitle: profile.role,
+      image: `${profile.url}/img/photo-416.jpg`,
+      sameAs: [profile.linkedin, profile.github, profile.verifiedHandles],
+    },
+  }
+}
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex min-h-screen flex-col">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData()) }}
+      />
       <SiteHeader />
 
-      <main id="main" className="grow">
-        {/* Hero Section */}
-        <section className="py-16 md:py-28">
-          <div className="container mx-auto px-4 flex flex-col items-center text-center">
-            <div className="mb-6 w-[150px] h-[150px] rounded-full relative overflow-hidden border">
-              <Image
-                src="/Linkedin_JamesHaworth.jpg"
-                alt="James Haworth"
-                fill
-                sizes="150px"
-                className="object-cover scale-125 translate-y-2 -translate-x-0.5"
-                priority
-              />
-            </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-4">
-              James Haworth
+      <main id="main" className="mx-auto w-full max-w-3xl grow px-4">
+        <section className="grid gap-8 pt-12 pb-10 sm:grid-cols-[1fr_104px] sm:pt-16">
+          <div>
+            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+              {profile.name}
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8">
-              Software Engineer
+            <p className="mt-2 mb-6 text-xl text-muted-foreground">
+              {profile.role}
             </p>
-            <p className="max-w-2xl text-lg mb-4">
-              Final-year Computer Science with AI student at the University of
-              York (First-class second year), graduating 06/2027. I spent my
-              placement year at ETAS (Bosch Group), where I still work
-              part-time, and I founded and run Verified Handles, a public
-              directory of verified social handles for 155,000+ public figures
-              and organisations, which I rebuilt in 2026.
-            </p>
-            <p className="max-w-2xl text-lg mb-10">
-              Looking for graduate software engineering and AI engineering roles
-              in London or Cambridge, where I&apos;m moving in 2027.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
+            <p className="mb-4 text-lg leading-relaxed">{profile.lede}</p>
+            <p className="mb-7">{profile.target}</p>
+            <div className="flex flex-wrap gap-2.5">
               <a
                 href="/cv.pdf"
                 download="James Haworth CV.pdf"
-                className="inline-flex items-center gap-2 bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 rounded-lg font-medium transition-colors"
+                className={`${buttonBase} bg-accent-strong text-white hover:bg-accent-strong/90`}
               >
                 <Download className="h-4 w-4" aria-hidden="true" />
                 Download CV (PDF)
               </a>
               <a
-                href="#contact"
-                className="bg-secondary text-secondary-foreground hover:bg-secondary/80 px-6 py-3 rounded-lg font-medium transition-colors"
+                href={`mailto:${profile.email}`}
+                className={`${buttonBase} border hover:bg-muted`}
               >
-                Get in touch
+                {profile.email}
+              </a>
+              <a
+                href={profile.linkedin}
+                className={`${buttonBase} border hover:bg-muted`}
+              >
+                LinkedIn
+              </a>
+              <a
+                href={profile.github}
+                className={`${buttonBase} border hover:bg-muted`}
+              >
+                GitHub
               </a>
             </div>
           </div>
+          <picture className="hidden sm:block">
+            <source
+              type="image/avif"
+              srcSet="/img/photo-104.avif 1x, /img/photo-208.avif 2x, /img/photo-312.avif 3x"
+            />
+            <source
+              type="image/webp"
+              srcSet="/img/photo-104.webp 1x, /img/photo-208.webp 2x, /img/photo-312.webp 3x"
+            />
+            <img
+              src="/img/photo-208.jpg"
+              alt={profile.name}
+              width={104}
+              height={104}
+              className="rounded-xl border"
+            />
+          </picture>
         </section>
 
-        {/* Experience Section */}
-        <section id="experience" className="py-20 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-12 text-center">Experience</h2>
-            <ExperienceTimeline />
-          </div>
-        </section>
+        <ul className="mb-16 grid grid-cols-2 border-y sm:grid-cols-4">
+          {figures.map((figure, i) => (
+            <li
+              key={figure.value}
+              className={`${i % 2 === 1 ? 'border-l' : ''} ${i >= 2 ? 'border-t sm:border-t-0' : ''} ${i === 2 ? 'sm:border-l' : ''}`}
+            >
+              <a
+                href={figure.href}
+                className="block h-full px-4 py-4 hover:bg-muted/50"
+              >
+                <span className="block text-2xl font-semibold">
+                  {figure.value}
+                </span>
+                <span className="mt-1 block text-sm leading-snug text-muted-foreground">
+                  {figure.label}
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
 
-        {/* Education Section */}
-        <section id="education" className="py-20">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-12 text-center">Education</h2>
-            <Education />
-          </div>
-        </section>
-
-        {/* Skills Section */}
-        <section id="skills" className="py-20 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-12 text-center">Skills</h2>
-            <dl className="max-w-3xl mx-auto grid gap-4 sm:grid-cols-[12rem_1fr]">
-              {skills.map((skill) => (
-                <div key={skill.group} className="contents">
-                  <dt className="font-semibold">{skill.group}</dt>
-                  <dd className="text-muted-foreground mb-2 sm:mb-0">
-                    {skill.items}
-                  </dd>
+        <Section id="work" title="Selected work">
+          <ul className="grid gap-3.5">
+            {work.map((item) => (
+              <li key={item.title} className="rounded-xl border p-5">
+                <h3 className="text-lg font-semibold">
+                  {item.page ? (
+                    <Link
+                      href={`/work/${item.page.slug}`}
+                      className="hover:underline"
+                    >
+                      {item.title}
+                    </Link>
+                  ) : (
+                    item.title
+                  )}
+                </h3>
+                <p className="mt-1.5 mb-3 leading-relaxed text-muted-foreground">
+                  {item.summary}
+                </p>
+                <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
+                  <ul className="flex flex-wrap gap-x-4 gap-y-1">
+                    {item.links.map((link) => (
+                      <li key={link.href}>
+                        <a
+                          href={link.href}
+                          className="font-medium text-link underline underline-offset-4"
+                        >
+                          {link.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                  <Tags tags={item.tags} />
                 </div>
-              ))}
-            </dl>
-          </div>
-        </section>
+              </li>
+            ))}
+          </ul>
+        </Section>
 
-        {/* CV Section */}
-        <section id="cv" className="py-20">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-12 text-center">CV</h2>
-            <div className="max-w-3xl mx-auto bg-card p-8 rounded-lg border shadow-xs">
-              <div className="flex flex-col md:flex-row items-center gap-6">
-                <div className="rounded-full bg-primary/10 p-5">
-                  <FileText
-                    className="h-10 w-10 text-primary"
-                    aria-hidden="true"
-                  />
-                </div>
-                <div className="flex-1 text-center md:text-left">
-                  <p className="text-muted-foreground mb-4">
-                    One A4 page, updated 10/2026.
-                  </p>
-                  <a
-                    href="/cv.pdf"
-                    download="James Haworth CV.pdf"
-                    className="inline-flex items-center gap-2 bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-2 rounded-lg font-medium transition-colors"
-                  >
-                    <Download className="h-4 w-4" aria-hidden="true" />
-                    Download CV (PDF)
-                  </a>
-                </div>
+        <Section id="experience" title="Experience">
+          <Experience />
+        </Section>
+
+        <Section id="education" title="Education">
+          <Education />
+        </Section>
+
+        <Section id="skills" title="Skills">
+          <dl className="grid gap-x-6 gap-y-3 sm:grid-cols-[11rem_1fr]">
+            {skills.map((skill) => (
+              <div key={skill.group} className="contents">
+                <dt className="font-semibold">{skill.group}</dt>
+                <dd className="mb-2 text-muted-foreground sm:mb-0">
+                  {skill.items}
+                </dd>
               </div>
-            </div>
-          </div>
-        </section>
+            ))}
+          </dl>
+        </Section>
 
-        {/* Contact Section */}
-        <section id="contact" className="py-20 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-12 text-center">
-              Get in Touch
-            </h2>
-            <div className="max-w-lg mx-auto flex flex-col gap-6">
-              <p className="text-center text-lg mb-6">
-                Email is quickest. I&apos;m also on LinkedIn and GitHub.
-              </p>
-              <a
-                href="mailto:james@jhaworth.ai"
-                className="flex items-center gap-3 p-4 rounded-lg bg-card hover:bg-card/80 transition-colors border"
-              >
-                <Mail className="h-5 w-5 text-primary" aria-hidden="true" />
-                <span>james@jhaworth.ai</span>
-              </a>
-              <a
-                href="https://linkedin.com/in/jameshaworthcs"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 p-4 rounded-lg bg-card hover:bg-card/80 transition-colors border"
-              >
-                <FaLinkedin
-                  className="h-5 w-5 text-primary"
-                  aria-hidden="true"
-                />
-                <span>linkedin.com/in/jameshaworthcs</span>
-              </a>
-              <a
-                href="https://github.com/jameshaworthcs"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 p-4 rounded-lg bg-card hover:bg-card/80 transition-colors border"
-              >
-                <FaGithub className="h-5 w-5 text-primary" aria-hidden="true" />
-                <span>github.com/jameshaworthcs</span>
-              </a>
-            </div>
-          </div>
-        </section>
+        <Section id="contact" title="Contact">
+          <p className="mb-4 text-lg">
+            Email is quickest:{' '}
+            <a
+              href={`mailto:${profile.email}`}
+              className="font-medium text-link underline underline-offset-4"
+            >
+              {profile.email}
+            </a>
+            . I&apos;m also on{' '}
+            <a
+              href={profile.linkedin}
+              className="font-medium text-link underline underline-offset-4"
+            >
+              LinkedIn
+            </a>{' '}
+            and{' '}
+            <a
+              href={profile.github}
+              className="font-medium text-link underline underline-offset-4"
+            >
+              GitHub
+            </a>
+            .
+          </p>
+          <p className="text-muted-foreground">
+            My CV is on{' '}
+            <Link href="/cv" className="underline underline-offset-4">
+              its own page
+            </Link>{' '}
+            and as a{' '}
+            <a
+              href="/cv.pdf"
+              download="James Haworth CV.pdf"
+              className="underline underline-offset-4"
+            >
+              one-page PDF
+            </a>
+            .
+          </p>
+        </Section>
       </main>
 
       <Footer />

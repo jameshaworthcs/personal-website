@@ -1,6 +1,4 @@
-import { Fragment } from 'react'
-
-interface Experience {
+export interface Experience {
   title: string
   company: string
   companyUrl?: string
@@ -10,14 +8,14 @@ interface Experience {
   tags: string[]
 }
 
-interface EarlierRole {
+export interface EarlierRole {
   title: string
   company: string
   period: string
   summary?: string
 }
 
-const experiences: Experience[] = [
+export const experiences: Experience[] = [
   {
     title: 'Field Application Engineer (part-time)',
     company: 'ETAS (Bosch Group)',
@@ -84,7 +82,7 @@ const experiences: Experience[] = [
   },
 ]
 
-const earlier: EarlierRole[] = [
+export const earlier: EarlierRole[] = [
   {
     title: 'Software Developer (part-time)',
     company: 'York Community Consulting',
@@ -98,120 +96,3 @@ const earlier: EarlierRole[] = [
       "Built a Raspberry Pi missile project in Python with a partner and presented it to the company's senior software developers.",
   },
 ]
-
-export function ExperienceTimeline() {
-  return (
-    <div className="max-w-3xl mx-auto">
-      {experiences.map((exp, i) => {
-        const isFirst = i === 0
-        const isLast = i === experiences.length - 1
-
-        return (
-          <div
-            key={`${exp.company}-${exp.period}`}
-            className="flex gap-6 md:gap-8"
-          >
-            {/* Timeline spine */}
-            <div className="flex flex-col items-center" aria-hidden="true">
-              <div
-                className={`w-px flex-1 ${isFirst ? 'bg-transparent' : 'bg-border'}`}
-              />
-              <div className="relative z-10 h-3.5 w-3.5 shrink-0 rounded-full border-2 border-primary bg-background shadow-xs shadow-primary/20" />
-              <div
-                className={`w-px flex-1 ${isLast ? 'bg-transparent' : 'bg-border'}`}
-              />
-            </div>
-
-            {/* Card */}
-            <div className={`flex-1 ${isLast ? '' : 'pb-6'}`}>
-              <div className="rounded-lg border bg-card p-5 shadow-xs">
-                <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-                  <h3 className="text-lg font-semibold">{exp.title}</h3>
-                  <div className="flex flex-wrap items-center gap-x-2 text-sm">
-                    <span className="font-medium text-muted-foreground">
-                      {exp.companyUrl ? (
-                        <a
-                          href={exp.companyUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="hover:text-foreground transition-colors"
-                        >
-                          {exp.company}
-                        </a>
-                      ) : (
-                        exp.company
-                      )}
-                    </span>
-                    <span className="hidden sm:block text-muted-foreground/50">
-                      /
-                    </span>
-                    <span className="font-medium text-blue-700 dark:text-primary">
-                      {/* Let two date ranges wrap at the comma on narrow screens */}
-                      {exp.period.split(', ').map((range, j, ranges) => (
-                        <Fragment key={range}>
-                          {j > 0 && ' '}
-                          <span className="whitespace-nowrap">
-                            {range}
-                            {j < ranges.length - 1 && ','}
-                          </span>
-                        </Fragment>
-                      ))}
-                    </span>
-                  </div>
-                </div>
-
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                  {exp.description}
-                </p>
-
-                {exp.links && (
-                  <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm">
-                    {exp.links.map((link) => (
-                      <li key={link.href}>
-                        <a
-                          href={link.href}
-                          className="font-medium text-blue-700 dark:text-primary underline underline-offset-4"
-                        >
-                          {link.label}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-
-                {exp.tags.length > 0 && (
-                  <ul
-                    className="mt-3 flex flex-wrap gap-1.5"
-                    aria-label="Skills"
-                  >
-                    {exp.tags.map((tag) => (
-                      <li
-                        key={tag}
-                        className="rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-blue-700 dark:text-primary"
-                      >
-                        {tag}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            </div>
-          </div>
-        )
-      })}
-
-      <div className="mt-10">
-        <h3 className="text-lg font-semibold mb-3">Earlier</h3>
-        <ul className="space-y-3 text-sm text-muted-foreground">
-          {earlier.map((role) => (
-            <li key={role.company}>
-              <span className="font-medium text-foreground">{role.title}</span>,{' '}
-              {role.company}, {role.period}
-              {role.summary && `: ${role.summary}`}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  )
-}

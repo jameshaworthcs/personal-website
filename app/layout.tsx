@@ -1,14 +1,18 @@
 import type React from 'react'
 import type { Metadata } from 'next'
 import Script from 'next/script'
-import { Inter } from 'next/font/google'
+import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
+import { profile } from '@/content/profile'
 
-const inter = Inter({ subsets: ['latin'] })
+const geistSans = Geist({ subsets: ['latin'], variable: '--font-geist-sans' })
+const geistMono = Geist_Mono({
+  subsets: ['latin'],
+  variable: '--font-geist-mono',
+})
 
-const description =
-  'Final-year Computer Science with AI student at the University of York, graduating 06/2027. Placement year at ETAS (Bosch Group); founder of Verified Handles. Looking for graduate software and AI engineering roles.'
+const description = profile.description
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://j-h.ai'),
@@ -55,7 +59,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-GB" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={`${geistSans.variable} ${geistMono.variable} font-sans`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
