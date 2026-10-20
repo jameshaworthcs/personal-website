@@ -100,7 +100,11 @@ test('the theme toggle switches on the first click', async ({ page }) => {
 
 test('the York Wines video plays from the keyboard', async ({ page }) => {
   await page.goto('/york-wines')
-  await page.keyboard.press('Tab') // the link home
+  // Skip link, then the back link, then the play button
+  await page.keyboard.press('Tab')
+  await page.keyboard.press('Enter')
+  await page.keyboard.press('Tab')
+  await expect(page.getByRole('link', { name: '← Experience' })).toBeFocused()
   await page.keyboard.press('Tab')
   const play = page.getByRole('button', { name: /Play the video/ })
   await expect(play).toBeFocused()
