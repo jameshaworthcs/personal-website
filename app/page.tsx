@@ -18,7 +18,7 @@ const skills = [
   {
     group: 'AI',
     items:
-      'LLM APIs, Model Context Protocol (MCP), Claude Code, GitHub Copilot, llama.cpp, prompt engineering',
+      'LLM APIs, Model Context Protocol (MCP), Claude Code, GitHub Copilot, llama.cpp',
   },
   {
     group: 'DevOps & Tools',
@@ -66,7 +66,7 @@ export default function Home() {
             </p>
             <p className="max-w-2xl text-lg mb-10">
               Looking for graduate software engineering and AI engineering roles
-              in London and Cambridge.
+              in London or Cambridge, where I&apos;m moving in 2027.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
