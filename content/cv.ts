@@ -62,6 +62,7 @@ export const cvExperience: CvEntry[] = [
         bullets: [
           'Resolved 170+ support tickets from car makers and Tier-1 suppliers worldwide on RTA-CAR (AUTOSAR Classic): reproduced faults, found root causes and escalated around 80 defects to R&D, most of them confirmed',
           "Overhauled the team's long-broken Jenkins CI/CD pipeline (Groovy) that builds, tests and releases customer demo projects, cutting release time from several hours to under an hour; adopted as the team standard",
+          'Asked for a taster with the internal DevOps team; built a Grafana dashboard tracking a migration off legacy Bosch tools, pre-aggregating the data in InfluxDB so it loads fast; the team lead proposed one per product field',
           'Led SKDocs, a public-facing documentation site built with MkDocs and Jenkins, now ready to go live',
           'Rated by supervisor as “consistently contributing at a level comparable to his full-time peers”',
         ],
