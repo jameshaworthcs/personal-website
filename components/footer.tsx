@@ -1,32 +1,22 @@
 import Link from 'next/link'
-import { FaGithub } from 'react-icons/fa'
+import { lastUpdated, monthYear } from '@/lib/last-updated'
 
 export function Footer() {
   return (
-    <footer className="border-t py-8">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col items-center justify-center space-y-4">
-          <div className="flex items-center space-x-6 text-sm text-muted-foreground">
-            <Link
-              href="https://github.com/jameshaworthcs/personal-website"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center space-x-2 hover:text-foreground transition-colors"
-            >
-              <FaGithub className="h-4 w-4" aria-hidden="true" />
-              <span>Source code</span>
-            </Link>
-            <Link
-              href="/privacy"
-              className="hover:text-foreground transition-colors"
-            >
-              Privacy
-            </Link>
-          </div>
-          <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} James Haworth. All rights reserved.
-          </p>
-        </div>
+    <footer className="border-t print:hidden">
+      <div className="mx-auto flex max-w-3xl flex-col gap-2 px-4 py-6 text-sm text-muted-foreground sm:flex-row sm:justify-between">
+        <p>Updated {monthYear(lastUpdated())}</p>
+        <p className="flex gap-5">
+          <Link
+            href="https://github.com/jameshaworthcs/personal-website"
+            className="hover:text-foreground"
+          >
+            Source code
+          </Link>
+          <Link href="/privacy" className="hover:text-foreground">
+            Privacy
+          </Link>
+        </p>
       </div>
     </footer>
   )

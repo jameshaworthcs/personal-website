@@ -17,14 +17,14 @@ export default function PrivacyPage() {
       <SiteHeader />
 
       <main id="main" className="grow">
-        <div className="container mx-auto px-4 py-16 max-w-2xl space-y-6 text-lg leading-relaxed">
+        <div className="mx-auto max-w-3xl space-y-6 px-4 py-12 text-lg leading-relaxed">
           <h1 className="text-4xl font-bold mb-8">Privacy</h1>
           <p>
             This site has no adverts and sets no cookies. I&apos;m James
             Haworth, and you can ask me anything about it at{' '}
             <a
               href="mailto:james@jhaworth.ai"
-              className="underline underline-offset-4"
+              className="text-link underline underline-offset-4"
             >
               james@jhaworth.ai
             </a>
@@ -47,7 +47,7 @@ export default function PrivacyPage() {
             IP addresses for security (
             <a
               href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages"
-              className="underline underline-offset-4"
+              className="text-link underline underline-offset-4"
             >
               GitHub&apos;s statement
             </a>

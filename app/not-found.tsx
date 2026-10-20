@@ -22,28 +22,34 @@ export default function NotFound() {
         className="grow flex items-center justify-center px-4 py-16"
       >
         <div className="w-full max-w-xl text-center">
-          <p className="text-7xl md:text-8xl font-bold text-primary mb-4">
+          <p className="mb-4 font-mono text-7xl font-bold text-link md:text-8xl">
             404
           </p>
           <h1 className="text-2xl md:text-4xl font-semibold mb-6">
             Page not found
           </h1>
           <p className="text-lg mb-8 text-muted-foreground">
-            This page doesn&apos;t exist. Try the home page or my CV.
+            This page doesn&apos;t exist. Try the home page, my work or my CV.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-3">
             <Link
               href="/"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 rounded-lg font-medium transition-colors"
+              className="rounded-lg bg-accent-strong px-5 py-2.5 font-medium text-white hover:bg-accent-strong/90"
             >
               Home page
             </Link>
-            <a
-              href="/cv.pdf"
-              className="bg-secondary text-secondary-foreground hover:bg-secondary/80 px-6 py-3 rounded-lg font-medium transition-colors"
+            <Link
+              href="/#work"
+              className="rounded-lg border px-5 py-2.5 font-medium hover:bg-muted"
             >
-              CV (PDF)
-            </a>
+              Selected work
+            </Link>
+            <Link
+              href="/cv"
+              className="rounded-lg border px-5 py-2.5 font-medium hover:bg-muted"
+            >
+              CV
+            </Link>
           </div>
         </div>
       </main>
