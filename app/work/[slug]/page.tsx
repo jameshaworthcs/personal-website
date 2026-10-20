@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { A } from '@/components/a'
 import { SiteHeader } from '@/components/site-header'
 import { Footer } from '@/components/footer'
 import { Tags } from '@/components/tags'
@@ -96,12 +97,12 @@ export default async function WorkPage({
             .filter((link) => !link.href.startsWith('/work/'))
             .map((link) => (
               <li key={link.href}>
-                <a
+                <A
                   href={link.href}
                   className="inline-flex rounded-lg border px-4 py-2.5 font-medium hover:bg-muted"
                 >
                   {link.label}
-                </a>
+                </A>
               </li>
             ))}
         </ul>

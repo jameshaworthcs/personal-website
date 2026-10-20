@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { A } from '@/components/a'
 import { SiteHeader } from '@/components/site-header'
 import { Footer } from '@/components/footer'
 import { AnalyticsOptOut } from '@/components/analytics-opt-out'
@@ -22,12 +23,12 @@ export default function PrivacyPage() {
           <p>
             This site has no adverts and sets no cookies. I&apos;m James
             Haworth, and you can ask me anything about it at{' '}
-            <a
+            <A
               href="mailto:james@jhaworth.ai"
               className="text-link underline underline-offset-4"
             >
               james@jhaworth.ai
-            </a>
+            </A>
             .
           </p>
 
@@ -45,12 +46,12 @@ export default function PrivacyPage() {
           <p>
             The site is hosted on GitHub Pages, and GitHub logs visitors&apos;
             IP addresses for security (
-            <a
+            <A
               href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages"
               className="text-link underline underline-offset-4"
             >
               GitHub&apos;s statement
-            </a>
+            </A>
             ). The York Wines video is served from video.j-h.ai through Amazon
             CloudFront.
           </p>

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import type React from 'react'
 import { Download } from 'lucide-react'
+import { A } from '@/components/a'
 import { SiteHeader } from '@/components/site-header'
 import { Footer } from '@/components/footer'
 import { profile } from '@/content/profile'
@@ -47,9 +48,9 @@ function Linked({ text }: { text: string }) {
   return (
     <>
       {text.slice(0, at)}
-      <a href={cvLinks[label]} className="underline">
+      <A href={cvLinks[label]} className="underline">
         {label}
-      </a>
+      </A>
       <Linked text={text.slice(at + label.length)} />
     </>
   )
@@ -107,14 +108,14 @@ export default function CvPage() {
       >
         <div className="mb-8 flex flex-wrap items-center justify-between gap-3 print:hidden">
           <p className="text-muted-foreground">The same page as the PDF.</p>
-          <a
+          <A
             href="/cv.pdf"
             download="James Haworth CV.pdf"
             className="inline-flex items-center gap-2 rounded-lg bg-accent-strong px-4 py-2.5 font-medium text-white hover:bg-accent-strong/90"
           >
             <Download className="h-4 w-4" aria-hidden="true" />
             Download CV (PDF)
-          </a>
+          </A>
         </div>
 
         <article className="[overflow-wrap:anywhere]">
@@ -127,9 +128,9 @@ export default function CvPage() {
               {contacts.map((contact, i) => (
                 <span key={contact.href}>
                   {i > 0 && ' | '}
-                  <a href={contact.href} className="underline">
+                  <A href={contact.href} className="underline">
                     {contact.label}
-                  </a>
+                  </A>
                 </span>
               ))}
             </p>
@@ -152,9 +153,9 @@ export default function CvPage() {
                     <span className="font-bold">{project.name}</span> |{' '}
                     <span className="italic">{project.stack}</span>
                   </h3>
-                  <a href={project.link.href} className="underline">
+                  <A href={project.link.href} className="underline">
                     {project.link.label}
-                  </a>
+                  </A>
                 </div>
                 <Bullets items={project.bullets} />
               </div>

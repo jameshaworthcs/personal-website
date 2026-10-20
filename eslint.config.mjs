@@ -8,6 +8,11 @@ const config = [
   {
     rules: {
       '@next/next/no-img-element': 'off',
+      // Links go through <A>, which adds rel="nofollow" to off-site links
+      'react/forbid-elements': [
+        'error',
+        { forbid: [{ element: 'a', message: 'use <A> from @/components/a' }] },
+      ],
     },
   },
 ]
