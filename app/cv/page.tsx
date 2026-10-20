@@ -87,9 +87,7 @@ export default function CvPage() {
         className="mx-auto w-full max-w-3xl grow px-4 pt-10 pb-16 print:max-w-none print:p-0"
       >
         <div className="mb-8 flex flex-wrap items-center justify-between gap-3 print:hidden">
-          <p className="text-muted-foreground">
-            The same page as the PDF, without my phone number.
-          </p>
+          <p className="text-muted-foreground">The same page as the PDF.</p>
           <a
             href="/cv.pdf"
             download="James Haworth CV.pdf"
