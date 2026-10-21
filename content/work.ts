@@ -39,7 +39,7 @@ export const work: Work[] = [
     title: 'Counting House',
     summary:
       'An open-source, local-first personal finance tracker for the UK (50+ stars on GitHub). Statements, CSV exports and screenshots go in; git-versioned JSON comes out.',
-    tags: ['TypeScript', 'React', 'Hono', 'Go'],
+    tags: ['TypeScript', 'React', 'Hono'],
     links: [
       { label: 'Project page', href: '/work/counting-house' },
       { label: 'Code', href: countingHouseRepo },
@@ -52,7 +52,7 @@ export const work: Work[] = [
       facts: [
         { label: 'Role', value: 'My own open-source project' },
         { label: 'When', value: '09/2026 – Present' },
-        { label: 'Stack', value: 'TypeScript, React, Hono, Go' },
+        { label: 'Stack', value: 'TypeScript, React, Hono' },
         { label: 'Licence', value: 'MIT' },
       ],
       sections: [
@@ -62,8 +62,8 @@ export const work: Work[] = [
             'I built an eval that measures, field by field, how well the import pipeline reads synthetic documents: CSV exports, PDF statements and phone screenshots.',
           ],
           bullets: [
-            'Claude Sonnet scored 100% on 28 cases for $1.04.',
-            'On a later, 41-case version, local models served through my own llama.cpp gateway scored 99.1% at no API cost.',
+            'Claude scored 100% on 36 documents in about 4 minutes.',
+            'Local models served through my own llama.cpp gateway scored 99.3% on 40 documents in 5.4 hours.',
           ],
         },
         {
@@ -103,7 +103,7 @@ export const work: Work[] = [
         {
           heading: 'What it is',
           paragraphs: [
-            'A public directory of verified social handles for 155,000+ public figures and organisations, 153,000+ of them linked to Wikidata.',
+            'A public directory of verified social handles for 155,000+ public figures and organisations, nearly all of them linked to Wikidata.',
           ],
           screenshot: {
             name: 'vh-home',

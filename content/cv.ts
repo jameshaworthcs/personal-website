@@ -30,8 +30,8 @@ export const cvEducation: CvEntry[] = [
           'BEng Computer Science with Artificial Intelligence (with a year in industry)',
         period: '09/2023 – 06/2027',
         bullets: [
-          'Second year: First-class average (73.5%); top modules: Data Science (79%), Advanced Computer Systems (79%), Machine Learning & Optimisation (78%)',
-          'Final year: Deep Learning, Natural Language Processing, Large Language Models, Cloud-based Data Analysis',
+          'Second year: First-class (73.5%); Data Science 79%, Advanced Computer Systems 79%, Machine Learning 78%',
+          'Final year: capstone on improving WHOIS with ML; Deep Learning, NLP, LLMs, Cloud-based Data Analysis',
         ],
       },
     ],
@@ -59,17 +59,18 @@ export const cvExperience: CvEntry[] = [
         title: 'Field Application Engineer (part-time)',
         period: '07/2026 – Present',
         bullets: [
-          "Lead the team's agent-skills repository; onboarded colleagues to Claude Code and GitHub Copilot (8 use them weekly); wrote skills that investigate tickets and fact-check replies: some now take minutes, not hours",
+          'Own AI tooling for the team: onboarded colleagues to Claude Code and GitHub Copilot (most use them weekly); wrote agent skills that investigate tickets and fact-check replies; some now take minutes, not hours',
+          'Track recurring RTA-CAR UI/UX issues through hands-on use and customer, first-line and internal Jira tickets (JQL filters, automation); my ongoing reports to product owners have moved neglected fixes forward',
         ],
       },
       {
         title: 'Software Engineering Intern (placement year)',
         period: '07/2025 – 07/2026',
         bullets: [
-          'Resolved 170+ support tickets from car makers and Tier-1 suppliers worldwide on RTA-CAR (AUTOSAR Classic): reproduced faults, found root causes and escalated around 80 defects to R&D, most of them confirmed',
-          "Overhauled the team's long-broken Jenkins CI/CD pipeline (Groovy) that builds, tests and releases customer demo projects, cutting release time from several hours to under an hour; adopted as the team standard",
-          'Asked for a taster with the internal DevOps team; built a Grafana dashboard tracking a migration off legacy Bosch tools, pre-aggregating the data in InfluxDB so it loads fast; the team lead proposed one per product field',
-          'Led SKDocs, a public-facing documentation site built with MkDocs and Jenkins, now ready to go live',
+          'Resolved 170+ support tickets from car makers and Tier-1 suppliers worldwide on RTA-CAR (AUTOSAR Classic): reproduced faults in C, found root causes and escalated around 80 defects to R&D, most confirmed',
+          "Overhauled the team's broken Jenkins CI/CD pipeline (Groovy, Python) for customer demo projects: releases, once mostly by hand over several hours, now run reproducibly in under an hour; adopted as the team standard",
+          'Arranged a taster with the internal DevOps team: wrote Terraform; built a Grafana dashboard for its Artifactory and Bitbucket migration, pre-aggregated in InfluxDB; the lead proposed one per product line',
+          'Led deployment of a public-facing MkDocs documentation site to replace PDF documentation, through conflicting opinions and changing requirements across technical authors and management; ready to go live',
           'Rated by supervisor as “consistently contributing at a level comparable to his full-time peers”',
         ],
       },
@@ -77,17 +78,16 @@ export const cvExperience: CvEntry[] = [
   },
   {
     organisation: 'Verified Handles (JEM Media Ltd)',
-    place: 'London Area, UK',
+    place: 'London, UK',
     roles: [
       {
         title: 'Founder & Lead Developer',
         period: '11/2020 – Present',
         bullets: [
-          'Founded and run verifiedhandles.org, a public directory of verified social handles for 155,000+ public figures and organisations, 153,000+ linked to Wikidata',
-          'Rebuilt it in 2026 as one TypeScript/PostgreSQL platform, replacing MediaWiki, PHP and Python bots; migrated all 591k historical revisions with zero data loss; live since 09/2026',
-          'Designed the site, its architecture, its hosting (nginx, Varnish) and its monitoring (Prometheus, Grafana); built it with parallel Claude Code agents, each change gated by tests and staging',
-          'Built JEMEDIA Accounts, the Go OAuth 2.0/OIDC provider behind sign-in',
-          "Created an MCP server for running the directory with AI agents: dry runs by default, confirmation for destructive changes, never above the user's role, every write audited",
+          'Founded and run verifiedhandles.org, a public directory of verified social handles for 155,000+ public figures and organisations (nearly all linked to Wikidata); in 2026, rebuilt it as one TypeScript/PostgreSQL platform replacing MediaWiki, PHP and Python bots; migrated all 591k revisions with zero data loss; live since 09/2026',
+          'Designed its architecture, hosting (nginx, Varnish) and monitoring (Prometheus, Grafana); built it with parallel Claude Code agents in isolated clones, each change gated by 10,000+ tests and staging',
+          "Built the Go OAuth 2.0/OpenID Connect provider behind the site's sign-in",
+          "Built an MCP server (120+ tools) and run the live directory through it with AI agents; an agent can do nothing its user couldn't, and nothing by accident",
         ],
       },
     ],
@@ -109,7 +109,7 @@ export const cvExperience: CvEntry[] = [
     ],
     bullets: [
       "Offered a contract after the internship, then an extension (owner's video testimonial: j-h.ai/york-wines)",
-      'Grew online shop sales by 30% and website traffic by 20% through SEO, site integrations and UX work',
+      'Grew online sales by 30% and website traffic by 20% over my time there through SEO, site integrations and UX',
     ],
   },
 ]
@@ -117,13 +117,13 @@ export const cvExperience: CvEntry[] = [
 export const cvProjects = [
   {
     name: 'Counting House',
-    stack: 'TypeScript, React, Hono, Go',
+    stack: 'TypeScript, React, Hono',
     link: {
       label: 'github.com/jameshaworthcs/countinghouse',
       href: 'https://github.com/jameshaworthcs/countinghouse',
     },
     bullets: [
-      'Open-source, local-first UK personal finance tracker (50+ GitHub stars); built a field-level extraction eval: Sonnet 100% on 28 synthetic cases for $1.04, local models via my llama.cpp gateway 99.1% on 41 for $0',
+      'Open-source, local-first UK personal finance tracker (50+ GitHub stars) that turns bank statements and screenshots into validated data; built an eval comparing Claude with local models on my llama.cpp gateway',
     ],
   },
 ]

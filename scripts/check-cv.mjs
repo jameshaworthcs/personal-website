@@ -112,6 +112,22 @@ for (const skill of skills) {
   }
 }
 
+// Each project's heading: name | stack, then the link on the right
+const cvProjectHeadings = argsOf('resumeProjectHeading').map(
+  ([heading, link]) => `${heading} / ${link}`
+)
+const siteProjectHeadings = cvProjects.map(
+  (project) => `${project.name} | ${project.stack} / ${project.link.label}`
+)
+for (const heading of siteProjectHeadings) {
+  if (!cvProjectHeadings.includes(heading))
+    errors.push(`Project heading on the site, not in the CV: ${heading}`)
+}
+for (const heading of cvProjectHeadings) {
+  if (!siteProjectHeadings.includes(heading))
+    errors.push(`Project heading in the CV, not on the site: ${heading}`)
+}
+
 // The links in the CV's bullets are the ones /cv adds to them
 const cvItemLinks = new Map()
 for (const item of tex.match(/\\resumeItem\{.*/g) ?? []) {
