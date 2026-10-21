@@ -2,16 +2,16 @@
 export const skills = [
   {
     group: 'Languages',
-    items: 'Python, TypeScript/JavaScript, Go, Java, C, Groovy, SQL, HTML/CSS',
+    items: 'Python, TypeScript/JavaScript, Go, Java, C, Groovy, SQL',
   },
   {
     group: 'Frameworks & Data',
-    items: 'React, Next.js, Node.js, PostgreSQL, MkDocs',
+    items: 'React, Next.js, Node.js, PostgreSQL, InfluxDB, Prometheus, MkDocs',
   },
   {
     group: 'AI',
     items:
-      'LLM APIs, Model Context Protocol (MCP), Claude Code, GitHub Copilot, llama.cpp',
+      'PyTorch, scikit-learn, LLM APIs, Model Context Protocol (MCP), llama.cpp',
   },
   {
     group: 'DevOps & Tools',

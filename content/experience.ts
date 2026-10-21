@@ -22,8 +22,8 @@ export const experiences: Experience[] = [
     companyUrl: 'https://etas.com',
     period: '07/2026 – Present',
     description:
-      "ETAS kept me on part-time after my placement year. Since September 2026 I've led the Field Application Engineering team's shared repository of agent skills. I onboarded colleagues to Claude Code and GitHub Copilot, and 8 of the team now use them every week. I write agent skills for customer support and day-to-day development: one investigates a support ticket from scratch and drafts a Jira comment, and another fact-checks the draft. Some investigations that took hours now take minutes.",
-    tags: ['Claude Code', 'GitHub Copilot', 'LLMs'],
+      "ETAS kept me on part-time after my placement year. Since September 2026 I've led the Field Application Engineering team's shared repository of agent skills. I onboarded colleagues to Claude Code and GitHub Copilot, and most of the team now use them every week. I write agent skills for customer support and day-to-day development: one investigates a support ticket from scratch and drafts a Jira comment, and another fact-checks the draft. Some investigations that took hours now take minutes. I also track recurring RTA-CAR UI/UX issues, from my own hands-on use and from customer, first-line and internal Jira tickets, with JQL filters and some automation, and report them to product owners; those reports have moved neglected fixes forward.",
+    tags: ['Claude Code', 'GitHub Copilot', 'LLMs', 'Jira'],
   },
   {
     title: 'Software Engineering Intern (placement year)',
@@ -31,11 +31,12 @@ export const experiences: Experience[] = [
     companyUrl: 'https://etas.com',
     period: '07/2025 – 07/2026',
     description:
-      "Year-long industrial placement in the Field Application Engineering team. Since July 2025 I've resolved 170+ support tickets from car makers (OEMs) and Tier-1 suppliers worldwide on RTA-CAR (AUTOSAR Classic): reproducing faults, finding root causes and escalating around 80 defects to R&D, most of them confirmed. I overhauled the team's long-broken Jenkins CI/CD pipeline (Groovy), which builds, tests and releases the team's customer demo projects, cutting release time from several hours to under an hour; it became the team standard. I asked for a taster with ETAS's internal DevOps team and built a Grafana dashboard tracking a migration off legacy Bosch tools, pre-aggregating the data in InfluxDB; the team lead proposed one for each product field. I led SKDocs, a public-facing documentation site built with MkDocs and Jenkins, now ready to go live. My supervisor rated me as \"consistently contributing at a level comparable to his full-time peers\".",
+      "Year-long industrial placement in the Field Application Engineering team. Since July 2025 I've resolved 170+ support tickets from car makers (OEMs) and Tier-1 suppliers worldwide on RTA-CAR (AUTOSAR Classic): reproducing faults in C, finding root causes and escalating around 80 defects to R&D, most of them confirmed. I overhauled the team's broken Jenkins CI/CD pipeline (Groovy, Python), which builds, tests and releases the team's customer demo projects. Before it, most releases were done by hand over several hours; they now run reproducibly in under an hour, and the pipeline became the team standard. I arranged a taster with ETAS's internal DevOps team, where I wrote Terraform and built a Grafana dashboard for the team's Artifactory and Bitbucket migration, pre-aggregating the data in InfluxDB; the team lead proposed one for each product line. I led SKDocs, a public-facing documentation site built with MkDocs and Jenkins, now ready to go live. My supervisor rated me as \"consistently contributing at a level comparable to his full-time peers\".",
     tags: [
       'RTA-CAR (AUTOSAR Classic)',
       'Jenkins',
       'Groovy',
+      'Python',
       'MkDocs',
       'Grafana',
       'Terraform',
@@ -47,7 +48,7 @@ export const experiences: Experience[] = [
     companyUrl: 'https://verifiedhandles.org',
     period: '11/2020 – Present',
     description:
-      "I founded and run Verified Handles, a public directory of verified social handles for 155,000+ public figures and organisations, 153,000+ of them linked to Wikidata. In 2026 I rebuilt it as one TypeScript/PostgreSQL platform, replacing MediaWiki, PHP and Python bots, and migrated all 591k historical revisions with zero data loss; it has been live since September 2026. I designed the site, its architecture, its hosting and its monitoring: production and staging behind Google Project Shield, nginx and Varnish, with Prometheus, Grafana and Loki for metrics, logs and alerts. I built it with parallel Claude Code agents, each in its own clone, with every change gated by tests and staging before release. In its first four weeks the new site had six times the Google Search clicks of the old site's last four weeks, from about the same number of impressions. I also built JEMEDIA Accounts, the Go OAuth 2.0/OpenID Connect provider behind sign-in, and an MCP server, listed in the MCP Registry, for running the directory with AI agents: writes are dry runs by default, destructive changes need confirmation, an agent never acts above its user's role, and every write is audited.",
+      "I founded and run Verified Handles, a public directory of verified social handles for 155,000+ public figures and organisations, nearly all of them linked to Wikidata. In 2026 I rebuilt it as one TypeScript/PostgreSQL platform, replacing MediaWiki, PHP and Python bots, and migrated all 591k historical revisions with zero data loss; it has been live since September 2026. I designed the site, its architecture, its hosting and its monitoring: production and staging behind Google Project Shield, nginx and Varnish, with Prometheus, Grafana and Loki for metrics, logs and alerts. I built it with parallel Claude Code agents, each in its own clone, with every change gated by tests and staging before release. In its first four weeks the new site had six times the Google Search clicks of the old site's last four weeks, from about the same number of impressions. I also built JEMEDIA Accounts, the Go OAuth 2.0/OpenID Connect provider behind sign-in, and an MCP server, listed in the MCP Registry, for running the directory with AI agents: writes are dry runs by default, destructive changes need confirmation, an agent never acts above its user's role, and every write is audited.",
     links: [
       {
         label: 'MCP server on GitHub',
