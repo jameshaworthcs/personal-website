@@ -27,7 +27,7 @@ export const cvEducation: CvEntry[] = [
     roles: [
       {
         title:
-          'BEng Computer Science with Artificial Intelligence (with a year in industry)',
+          'BEng Computer Science with Artificial Intelligence (with a year in industry); predicted First',
         period: '09/2023 – 06/2027',
         bullets: [
           'Second year: First-class (73.5%); Data Science 79%, Advanced Computer Systems 79%, Machine Learning 78%',
@@ -123,7 +123,7 @@ export const cvProjects = [
       href: 'https://github.com/jameshaworthcs/countinghouse',
     },
     bullets: [
-      'Open-source, local-first UK personal finance tracker (50+ GitHub stars) that turns bank statements and screenshots into validated data; built an eval comparing Claude with local models on my llama.cpp gateway',
+      'Open-source, local-first UK personal finance tracker that turns bank statements and screenshots into validated data; built an eval comparing Claude with local models on my llama.cpp gateway',
     ],
   },
 ]

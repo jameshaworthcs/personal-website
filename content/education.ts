@@ -11,7 +11,7 @@ export const schools: School[] = [
     name: 'University of York',
     place: 'York, UK',
     course:
-      'BEng Computer Science with Artificial Intelligence (with a year in industry)',
+      'BEng Computer Science with Artificial Intelligence (with a year in industry); predicted First',
     period: '09/2023 – 06/2027',
     details: [
       'Second year: First-class average (73.5%); top modules: Data Science (79%), Advanced Computer Systems (79%), Machine Learning & Optimisation (78%)',
