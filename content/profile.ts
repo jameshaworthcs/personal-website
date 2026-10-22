@@ -8,7 +8,7 @@ export const profile = {
   verifiedHandles: 'https://verifiedhandles.org/james',
   // The CV's title line
   location: 'York, UK (relocating to London or Cambridge, 2027)',
-  lede: 'Final-year Computer Science with AI student at the University of York (First-class second year), graduating 06/2027. I spent my placement year at ETAS (Bosch Group), where I still work part-time, and I founded and run Verified Handles, a public directory of verified social handles for 155,000+ public figures and organisations, which I rebuilt in 2026.',
+  lede: 'Final-year Computer Science with AI student at the University of York, predicted a First and graduating 06/2027. I spent my placement year at ETAS (Bosch Group), where I still work part-time, and I founded and run Verified Handles, a public directory of verified social handles for 155,000+ public figures and organisations, which I rebuilt in 2026.',
   target:
     "Looking for graduate software engineering and AI engineering roles in London or Cambridge, where I'm moving in 2027.",
   description:

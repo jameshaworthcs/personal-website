@@ -38,7 +38,7 @@ export const work: Work[] = [
   {
     title: 'Counting House',
     summary:
-      'An open-source, local-first personal finance tracker for the UK (50+ stars on GitHub). Statements, CSV exports and screenshots go in; git-versioned JSON comes out.',
+      'An open-source, local-first personal finance tracker for the UK. Statements, CSV exports and screenshots go in; git-versioned JSON comes out.',
     tags: ['TypeScript', 'React', 'Hono'],
     links: [
       { label: 'Project page', href: '/work/counting-house' },
@@ -48,7 +48,7 @@ export const work: Work[] = [
       slug: 'counting-house',
       description:
         'Counting House, an open-source, local-first personal finance tracker for the UK, and the field-level eval behind its import pipeline.',
-      lede: 'An open-source, local-first personal finance tracker for the UK (50+ stars on GitHub). Statements, CSV exports and screenshots go in; git-versioned JSON comes out: estate value, spending, tax year and projections.',
+      lede: 'An open-source, local-first personal finance tracker for the UK. Statements, CSV exports and screenshots go in; git-versioned JSON comes out: estate value, spending, tax year and projections.',
       facts: [
         { label: 'Role', value: 'My own open-source project' },
         { label: 'When', value: '09/2026 – Present' },
