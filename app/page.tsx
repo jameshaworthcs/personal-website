@@ -27,7 +27,7 @@ function structuredData() {
       name: profile.name,
       url: profile.url,
       jobTitle: profile.role,
-      image: `${profile.url}/img/photo-${photo.widths.at(-1)}.jpg`,
+      image: `${profile.url}/img/photo-${photo.full.width}.jpg`,
       sameAs: [profile.linkedin, profile.github, profile.verifiedHandles],
     },
   }

@@ -1,4 +1,6 @@
-// Builds the responsive copies of assets/photo.jpg in public/img and records
+// Builds the responsive copies of assets/photo.jpg in public/img, plus one
+// full-size JPEG that the page swaps in once it has loaded (for crisp
+// high-DPI screens, and for anyone who opens or saves the image), and records
 // its shape in content/photo.ts. The photo can be any shape (1:1 or 4:5,
 // say): it is resized, never cropped. Run `npm run images` after replacing
 // it, then commit the results.
@@ -7,7 +9,7 @@ import sharp from 'sharp'
 
 const source = 'assets/photo.jpg'
 const outDir = 'public/img'
-// The hero shows the photo 120 CSS px wide; 480 is for structured data
+// The hero shows the photo 120 CSS px wide (3x is 360); 480 is spare
 const displayWidth = 120
 const widths = [120, 240, 360, 480]
 
@@ -32,6 +34,10 @@ for (const w of widths) {
     .jpeg({ quality: 78, mozjpeg: true })
     .toFile(`${outDir}/photo-${w}.jpg`)
 }
+// JPEG, not AVIF, so a saved copy opens anywhere
+await sharp(source)
+  .jpeg({ quality: 85, mozjpeg: true })
+  .toFile(`${outDir}/photo-${width}.jpg`)
 
 const displayHeight = Math.round((displayWidth * height) / width)
 await writeFile(
@@ -41,9 +47,10 @@ export const photo = {
   width: ${displayWidth},
   height: ${displayHeight},
   widths: [${widths.join(', ')}],
+  full: { width: ${width}, height: ${height} },
 }
 `
 )
 console.log(
-  `${source}: ${width}×${height}; wrote ${widths.length * 3} files and content/photo.ts (${displayWidth}×${displayHeight})`
+  `${source}: ${width}×${height}; wrote ${widths.length * 3 + 1} files and content/photo.ts (${displayWidth}×${displayHeight})`
 )
