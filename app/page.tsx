@@ -7,7 +7,7 @@ import { Experience } from '@/components/experience'
 import { Education } from '@/components/education'
 import { Tags } from '@/components/tags'
 import { Footer } from '@/components/footer'
-import { Photo } from '@/components/photo'
+import { Avatar, Photo } from '@/components/photo'
 import { photo } from '@/content/photo'
 import { figures, profile } from '@/content/profile'
 import { skills } from '@/content/skills'
@@ -45,12 +45,17 @@ export default function Home() {
       <main id="main" className="mx-auto w-full max-w-3xl grow px-4">
         <section className="grid gap-8 pt-12 pb-10 sm:grid-cols-[1fr_120px] sm:pt-16">
           <div>
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-              {profile.name}
-            </h1>
-            <p className="mt-2 mb-6 text-xl text-muted-foreground">
-              {profile.role}
-            </p>
+            <div className="mb-6 flex items-center gap-4 max-[379px]:gap-3">
+              <Avatar alt={profile.name} />
+              <div>
+                <h1 className="text-4xl font-bold tracking-tight max-[379px]:text-[2.125rem] sm:text-5xl">
+                  {profile.name}
+                </h1>
+                <p className="mt-2 text-xl text-muted-foreground">
+                  {profile.role}
+                </p>
+              </div>
+            </div>
             <p className="mb-4 text-lg leading-relaxed">{profile.lede}</p>
             <p className="mb-7">{profile.target}</p>
             <div className="flex flex-wrap gap-2.5">

@@ -67,6 +67,10 @@
     /* keep headings clear of the sticky header when jumping to a section */
     scroll-padding-top: 5rem;
   }
+  /* the page stays put behind an open lightbox */
+  html:has(dialog[open]) {
+    overflow: hidden;
+  }
   body {
     @apply bg-background text-foreground antialiased;
   }
