@@ -203,3 +203,83 @@ test('project screenshots load and link to their full size', async ({
     }
   }
 })
+
+test('the headshot opens full size and closes again', async ({ page }) => {
+  await page.goto('/')
+  const dialog = page.getByRole('dialog')
+  const open = page.getByRole('button', { name: /view full size/i })
+
+  await open.click()
+  await expect(dialog).toBeVisible()
+  await expect
+    .poll(() =>
+      dialog.locator('img').evaluate((el: HTMLImageElement) => el.naturalWidth)
+    )
+    .toBeGreaterThan(1000)
+  await page.getByRole('button', { name: 'Close' }).click()
+  await expect(dialog).toBeHidden()
+
+  // A click on the photo itself leaves it open; one beside it closes it
+  await open.click()
+  await dialog.locator('img').click()
+  await expect(dialog).toBeVisible()
+  await page.mouse.click(5, 300)
+  await expect(dialog).toBeHidden()
+
+  await open.click()
+  await page.keyboard.press('Escape')
+  await expect(dialog).toBeHidden()
+})
+
+test('the headshot swaps in a high-resolution copy after load', async ({
+  page,
+}) => {
+  // Phones get the round avatar beside the name, desktops the photo.
+  // naturalWidth isn't checked: Chrome keeps the density it picked from the
+  // srcset, so a 1440 px swap-in can report 480
+  await page.goto('/')
+  const img = page
+    .getByRole('button', { name: /view full size/i })
+    .locator('img')
+  await expect
+    .poll(() => img.evaluate((el: HTMLImageElement) => el.currentSrc))
+    .toMatch(/\/img\/(avatar-1440|photo-4234)\.jpg$/)
+})
+
+test('the name stays on one line beside the avatar', async ({
+  page,
+}, testInfo) => {
+  test.skip(testInfo.project.name !== 'phone')
+  for (const width of [390, 375, 360]) {
+    await page.setViewportSize({ width, height: 844 })
+    await page.goto('/')
+    const lines = await page
+      .getByRole('heading', { level: 1 })
+      .evaluate(
+        (el) =>
+          el.getBoundingClientRect().height /
+          parseFloat(getComputedStyle(el).lineHeight)
+      )
+    expect(lines, `at ${width} px`).toBeLessThan(1.5)
+  }
+})
+
+test('the full-size hint shows on hover or keyboard focus only', async ({
+  page,
+}) => {
+  await page.goto('/')
+  const open = page.getByRole('button', { name: /view full size/i })
+  const hint = open.locator('span').first()
+  const opacity = () =>
+    hint.evaluate((el) => Number(getComputedStyle(el).opacity))
+
+  expect(await opacity()).toBe(0)
+  await open.hover()
+  await expect.poll(opacity).toBe(1)
+  await page.mouse.move(0, 0)
+  await expect.poll(opacity).toBe(0)
+  await open.focus()
+  await page.keyboard.press('Shift+Tab')
+  await page.keyboard.press('Tab')
+  await expect.poll(opacity).toBe(1)
+})
