@@ -12,6 +12,7 @@ import {
   cvLinks,
   cvProjects,
 } from '../content/cv.ts'
+import { profile } from '../content/profile.ts'
 import { skills } from '../content/skills.ts'
 
 const texPath = process.argv[2] ?? process.env.CV_TEX ?? '../resume/resume.tex'
@@ -23,8 +24,22 @@ try {
   console.error(`Can't read ${texPath}; pass the path to resume.tex`)
   process.exit(2)
 }
-// Only the page itself, not the preamble's command definitions
-tex = tex.slice(tex.indexOf('\\begin{document}'))
+// The title line's defaults, e.g. \providecommand{\cvlocation}{York, UK}
+const defaults = new Map(
+  [...tex.matchAll(/\\providecommand\{\\(cv\w+)\}\{([^{}]*)\}/g)].map(
+    ([, name, value]) => [name, value]
+  )
+)
+// Only the page itself, not the preamble's command definitions, with the
+// defaults filled in as a plain ./build.sh would
+tex = tex
+  .slice(tex.indexOf('\\begin{document}'))
+  .replace(/\\ifx\\(cv\w+)\\empty\\else([^]*?)\\fi/g, (match, name, body) =>
+    defaults.get(name) ? body : ''
+  )
+  .replace(/\\(cv\w+)(?![a-zA-Z])(?:\{\})?/g, (match, name) =>
+    defaults.has(name) ? defaults.get(name) : match
+  )
 
 // The LaTeX the CV uses, turned into the plain text the site shows
 function plain(latex) {
@@ -86,6 +101,14 @@ const cvStrings = new Set([
 ])
 const texText = plain(tex)
 
+const errors = []
+
+// The header /cv renders: the title line and the summary under the contacts
+const titleLine = `${profile.role} | Available ${profile.available} | ${profile.location}`
+for (const text of [titleLine, profile.summary]) {
+  if (!texText.includes(text)) errors.push(`Header differs: ${text}`)
+}
+
 const siteStrings = []
 for (const entry of [...cvEducation, ...cvExperience]) {
   siteStrings.push(entry.organisation, entry.place)
@@ -96,7 +119,6 @@ for (const entry of [...cvEducation, ...cvExperience]) {
 }
 for (const project of cvProjects) siteStrings.push(...project.bullets)
 
-const errors = []
 for (const text of siteStrings) {
   if (!cvStrings.has(text) && !texText.includes(text)) {
     errors.push(`On the site, not in the CV: ${text}`)

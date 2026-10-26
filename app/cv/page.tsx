@@ -122,7 +122,8 @@ export default function CvPage() {
           <header className="mb-6 text-center">
             <h1 className="text-4xl font-bold">{profile.name}</h1>
             <p className="mt-1">
-              {profile.role} | {profile.location}
+              {profile.role} | Available {profile.available} |{' '}
+              {profile.location}
             </p>
             <p className="mt-1 text-[15px]">
               {contacts.map((contact, i) => (
@@ -134,6 +135,7 @@ export default function CvPage() {
                 </span>
               ))}
             </p>
+            <p className="mt-3 text-[15px] italic">{profile.summary}</p>
           </header>
 
           <CvSection title="Education">
