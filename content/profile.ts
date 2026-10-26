@@ -7,16 +7,16 @@ export const profile = {
   github: 'https://github.com/jameshaworthcs',
   verifiedHandles: 'https://verifiedhandles.org/james',
   // The CV's title line
-  available: '07/2027',
-  location: 'York, UK (relocating to London or Cambridge)',
-  // The CV's one-line summary, under its contact line
+  available: 'from 07/2027',
+  location: 'York, UK (willing to relocate)',
+  // The CV's summary, under its contact line
   summary:
-    'A year in industry at ETAS (Bosch Group); I build, test and run production software, much of it with AI coding agents.',
+    "ETAS (Bosch Group) kept me on part-time after my year in industry. I build and run production systems and AI tooling, at work and in my own projects. I'm looking for a graduate software engineering role, ideally in applied AI.",
   lede: 'Final-year Computer Science with AI student at the University of York, predicted a First and graduating 06/2027. I spent my placement year at ETAS (Bosch Group), where I still work part-time, and I founded and run Verified Handles, a public directory of verified social handles for 155,000+ public figures and organisations, which I rebuilt in 2026.',
   target:
-    "Looking for graduate software engineering and AI engineering roles in London or Cambridge, where I'm moving in 2027.",
+    "Looking for a graduate software engineering role, ideally in applied AI, from 07/2027. I'm willing to relocate.",
   description:
-    'Final-year Computer Science with AI student at the University of York, graduating 06/2027. Placement year at ETAS (Bosch Group); founder of Verified Handles. Looking for graduate software and AI engineering roles.',
+    'Final-year Computer Science with AI student at the University of York, graduating 06/2027. Placement year at ETAS (Bosch Group); founder of Verified Handles. Looking for a graduate software engineering role, ideally in applied AI.',
 }
 
 export const figures = [

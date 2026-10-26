@@ -90,7 +90,7 @@ export const work: Work[] = [
         'How James Haworth rebuilt Verified Handles, a directory of 155,000+ public figures and organisations, as one TypeScript/PostgreSQL platform.',
       lede: 'In 2026 I rebuilt Verified Handles as one TypeScript/PostgreSQL platform, replacing MediaWiki, PHP and Python bots, and migrated all 591k historical revisions with zero data loss. It has been live since 09/2026.',
       facts: [
-        { label: 'Role', value: 'Founder & Lead Developer' },
+        { label: 'Role', value: 'Founder & Engineer' },
         { label: 'When', value: '11/2020 – Present; rebuilt in 2026' },
         { label: 'Stack', value: 'TypeScript, PostgreSQL, Go' },
       ],

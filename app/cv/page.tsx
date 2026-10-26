@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { Fragment } from 'react'
 import type React from 'react'
 import { Download } from 'lucide-react'
 import { A } from '@/components/a'
@@ -7,6 +8,8 @@ import { Footer } from '@/components/footer'
 import { profile } from '@/content/profile'
 import { skills } from '@/content/skills'
 import {
+  cvActivities,
+  cvCertificates,
   cvEducation,
   cvExperience,
   cvLinks,
@@ -17,7 +20,7 @@ import {
 export const metadata: Metadata = {
   title: 'CV',
   description:
-    'The CV of James Haworth, Software Engineer: education, experience, projects and technical skills.',
+    'The CV of James Haworth, Software Engineer: education, experience, projects, technical skills, certifications and activities.',
   alternates: {
     canonical: '/cv',
   },
@@ -80,7 +83,18 @@ function Entry({ entry }: { entry: CvEntry }) {
         <div key={role.title}>
           <div className="flex justify-between gap-4 italic">
             <span>{role.title}</span>
-            <span className="shrink-0 whitespace-nowrap">{role.period}</span>
+            {/* Two date ranges wrap at the comma on narrow screens */}
+            <span className="text-right">
+              {role.period.split(', ').map((range, j, ranges) => (
+                <Fragment key={range}>
+                  {j > 0 && ' '}
+                  <span className="whitespace-nowrap">
+                    {range}
+                    {j < ranges.length - 1 && ','}
+                  </span>
+                </Fragment>
+              ))}
+            </span>
           </div>
           <Bullets items={role.bullets} />
         </div>
@@ -107,7 +121,7 @@ export default function CvPage() {
         className="mx-auto w-full max-w-3xl grow px-4 pt-10 pb-16 print:max-w-none print:p-0"
       >
         <div className="mb-8 flex flex-wrap items-center justify-between gap-3 print:hidden">
-          <p className="text-muted-foreground">The same page as the PDF.</p>
+          <p className="text-muted-foreground">The same CV as the PDF.</p>
           <A
             href="/cv.pdf"
             download="James Haworth CV.pdf"
@@ -144,10 +158,13 @@ export default function CvPage() {
             ))}
           </CvSection>
 
-          <CvSection title="Experience and Projects">
+          <CvSection title="Experience">
             {cvExperience.map((entry) => (
               <Entry key={entry.organisation} entry={entry} />
             ))}
+          </CvSection>
+
+          <CvSection title="Projects">
             {cvProjects.map((project) => (
               <div key={project.name} className="mb-4">
                 <div className="flex flex-wrap justify-between gap-x-4">
@@ -173,6 +190,29 @@ export default function CvPage() {
                 </div>
               ))}
             </dl>
+          </CvSection>
+
+          <CvSection title="Certifications and Activities">
+            {cvCertificates.map((certificate) => (
+              <div
+                key={certificate.name}
+                className="flex justify-between gap-4 text-[15px] print:text-[10pt]"
+              >
+                <span>
+                  <span className="font-bold">{certificate.name}</span>
+                  {certificate.issuer && (
+                    <>
+                      {' '}
+                      | <span className="italic">{certificate.issuer}</span>
+                    </>
+                  )}
+                </span>
+                <span className="shrink-0 whitespace-nowrap">
+                  {certificate.date}
+                </span>
+              </div>
+            ))}
+            <Bullets items={cvActivities} />
           </CvSection>
         </article>
       </main>

@@ -6,7 +6,7 @@ export const skills = [
   },
   {
     group: 'Frameworks & Data',
-    items: 'React, Next.js, Node.js, PostgreSQL, InfluxDB, Prometheus, MkDocs',
+    items: 'React, Next.js, Node.js, PostgreSQL, InfluxDB',
   },
   {
     group: 'AI',
@@ -15,8 +15,11 @@ export const skills = [
   },
   {
     group: 'DevOps & Tools',
-    items:
-      'Jenkins, Git, Docker, Linux, Grafana, Terraform, Jira Service Management, Google Cloud, AWS',
+    items: 'Jenkins, Git, Docker, Linux, Terraform, MkDocs, Jira',
+  },
+  {
+    group: 'Cloud & Monitoring',
+    items: 'Google Cloud, AWS, Prometheus, Grafana',
   },
   {
     group: 'Automotive',
