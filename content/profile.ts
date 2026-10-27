@@ -11,12 +11,12 @@ export const profile = {
   location: 'York, UK (willing to relocate)',
   // The CV's summary, under its contact line
   summary:
-    "ETAS (Bosch Group) kept me on part-time after my year in industry. I build and run production systems and AI tooling, at work and in my own projects. I'm looking for a graduate software engineering role, ideally in applied AI.",
+    "ETAS (Bosch Group) kept me on part-time after my year in industry. I build and run CI/CD pipelines, a public web platform and AI agent tooling. I'm looking for a graduate software engineering role.",
   lede: 'Final-year Computer Science with AI student at the University of York, predicted a First and graduating 06/2027. I spent my placement year at ETAS (Bosch Group), where I still work part-time, and I founded and run Verified Handles, a public directory of verified social handles for 155,000+ public figures and organisations, which I rebuilt in 2026.',
   target:
-    "Looking for a graduate software engineering role, ideally in applied AI, from 07/2027. I'm willing to relocate.",
+    "Looking for a graduate software engineering role from 07/2027. I'm willing to relocate.",
   description:
-    'Final-year Computer Science with AI student at the University of York, graduating 06/2027. Placement year at ETAS (Bosch Group); founder of Verified Handles. Looking for a graduate software engineering role, ideally in applied AI.',
+    'Final-year Computer Science with AI student at the University of York, graduating 06/2027. Placement year at ETAS (Bosch Group); founder of Verified Handles. Looking for a graduate software engineering role.',
 }
 
 export const figures = [
@@ -26,7 +26,7 @@ export const figures = [
     href: 'https://verifiedhandles.org',
   },
   {
-    value: '591k',
+    value: '591,000',
     label: 'revisions migrated in the 2026 rebuild, zero data loss',
     href: '/work/verified-handles',
   },

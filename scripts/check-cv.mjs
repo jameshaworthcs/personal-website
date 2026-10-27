@@ -96,8 +96,16 @@ function plain(latex) {
       '$1'
     )
   }
+  // The public copy: \cvpublic is defined (no phone number), and no other
+  // build flag is, so ./build.sh --ai's "ideally in applied AI" is left out
   return s
-    .replace(/\\ifdefined\\cvpublic\\else[^]*?\\fi/g, '')
+    .replace(
+      /\\ifdefined\\(cv\w+)(?![a-zA-Z])([^]*?)\\fi/g,
+      (match, name, body) => {
+        const [then, otherwise = ''] = body.split(/\\else(?![a-zA-Z])/)
+        return name === 'cvpublic' ? then : otherwise
+      }
+    )
     .replace(/``/g, '“')
     .replace(/''/g, '”')
     .replace(/\$\|\$/g, '|')
@@ -180,8 +188,8 @@ for (const heading of cvProjectHeadings) {
     errors.push(`Project heading in the CV, not on the site: ${heading}`)
 }
 
-// Certifications and Activities: a row per certificate, bold name, an
-// optional | and italic issuer, and the date on the right
+// Courses & Awards: a row per certificate, bold name, an optional | and
+// italic issuer, and the date on the right
 const cvCertificateRows = [
   ...tex.matchAll(
     /\\textbf\{([^{}]*)\}(?:\s*\$\|\$\s*\\emph\{([^{}]*)\})?\s*&\s*\\cvsize\s*(\d{2}\/\d{4})/g

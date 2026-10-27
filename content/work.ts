@@ -38,8 +38,8 @@ export const work: Work[] = [
   {
     title: 'Counting House',
     summary:
-      'An open-source, local-first personal finance tracker for the UK. Statements, CSV exports and screenshots go in; git-versioned JSON comes out.',
-    tags: ['TypeScript', 'React', 'Hono'],
+      'An open-source, local-first personal finance tracker for the UK. Statements, CSV exports and screenshots go in; Git-versioned JSON comes out.',
+    tags: ['TypeScript', 'React', 'Hono', 'llama.cpp'],
     links: [
       { label: 'Project page', href: '/work/counting-house' },
       { label: 'Code', href: countingHouseRepo },
@@ -48,11 +48,11 @@ export const work: Work[] = [
       slug: 'counting-house',
       description:
         'Counting House, an open-source, local-first personal finance tracker for the UK, and the field-level eval behind its import pipeline.',
-      lede: 'An open-source, local-first personal finance tracker for the UK. Statements, CSV exports and screenshots go in; git-versioned JSON comes out: estate value, spending, tax year and projections.',
+      lede: 'An open-source, local-first personal finance tracker for the UK. Statements, CSV exports and screenshots go in; Git-versioned JSON comes out: estate value, spending, tax year and projections.',
       facts: [
         { label: 'Role', value: 'My own open-source project' },
         { label: 'When', value: '09/2026 – Present' },
-        { label: 'Stack', value: 'TypeScript, React, Hono' },
+        { label: 'Stack', value: 'TypeScript, React, Hono, llama.cpp' },
         { label: 'Licence', value: 'MIT' },
       ],
       sections: [
@@ -63,7 +63,7 @@ export const work: Work[] = [
           ],
           bullets: [
             'Claude scored 100% on 36 documents in about 4 minutes.',
-            'Local models served through my own llama.cpp gateway scored 99.3% on 40 documents in 5.4 hours.',
+            'Fully local, Qwen3.6-35B-A3B served through my own llama.cpp gateway read 99.3% of 2,614 fields correctly on 40 documents, in 5.4 hours.',
           ],
         },
         {
@@ -78,7 +78,7 @@ export const work: Work[] = [
   {
     title: 'Rebuilding Verified Handles',
     summary:
-      'One TypeScript/PostgreSQL platform in place of MediaWiki, PHP and Python bots. All 591k historical revisions migrated with zero data loss; live since 09/2026.',
+      'A TypeScript/PostgreSQL platform in place of MediaWiki, PHP and Python bots. All 591,000 historical revisions migrated with zero data loss; live since 09/2026.',
     tags: ['TypeScript', 'PostgreSQL', 'Go'],
     links: [
       { label: 'Project page', href: '/work/verified-handles' },
@@ -87,8 +87,8 @@ export const work: Work[] = [
     page: {
       slug: 'verified-handles',
       description:
-        'How James Haworth rebuilt Verified Handles, a directory of 155,000+ public figures and organisations, as one TypeScript/PostgreSQL platform.',
-      lede: 'In 2026 I rebuilt Verified Handles as one TypeScript/PostgreSQL platform, replacing MediaWiki, PHP and Python bots, and migrated all 591k historical revisions with zero data loss. It has been live since 09/2026.',
+        'How James Haworth rebuilt Verified Handles, a directory of 155,000+ public figures and organisations, as a TypeScript/PostgreSQL platform.',
+      lede: 'In 2026 I rebuilt Verified Handles as a TypeScript/PostgreSQL platform, replacing MediaWiki, PHP and Python bots, and migrated all 591,000 historical revisions with zero data loss. It has been live since 09/2026.',
       facts: [
         { label: 'Role', value: 'Founder & Engineer' },
         { label: 'When', value: '11/2020 – Present; rebuilt in 2026' },
@@ -96,7 +96,7 @@ export const work: Work[] = [
       ],
       figures: [
         { value: '155,000+', label: 'public figures and organisations' },
-        { value: '591k', label: 'historical revisions migrated' },
+        { value: '591,000', label: 'historical revisions migrated' },
         { value: '0', label: 'revisions lost' },
       ],
       sections: [

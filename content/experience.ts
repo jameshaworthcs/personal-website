@@ -22,7 +22,7 @@ export const experiences: Experience[] = [
     companyUrl: 'https://etas.com',
     period: '07/2026 – Present',
     description:
-      "ETAS kept me on part-time after my placement year. Since September 2026 I've led the Field Application Engineering team's shared repository of agent skills. I onboarded colleagues to Claude Code and GitHub Copilot, and most of the team now use them every week. I write agent skills for customer support and day-to-day development, alone and with colleagues: one investigates a support ticket from scratch and drafts a Jira comment, and another fact-checks the draft. Some investigations that took hours now take minutes. I keep model API costs down by running subagents on cheaper models and keeping their context small. I also track recurring RTA-CAR UI/UX issues across product teams, from using the product and from customer, first-line and internal Jira tickets, with JQL filters and some automation; my analysis for product owners has moved small fixes forward.",
+      "ETAS kept me on part-time after my placement year. Since September 2026 I've led the Field Application Engineering team's shared repository of agent skills. I onboarded colleagues to Claude Code and GitHub Copilot, and most of the team now use them every week. I write agent skills for customer support and day-to-day development, alone and with colleagues: one investigates a support ticket from scratch and drafts a Jira comment, and another fact-checks the draft. Some investigations that took hours now take minutes. I keep model API costs down by running subagents on cheaper models and keeping their context small. I also track recurring RTA-CAR UI/UX issues across product teams, from using the product and from customer, first-line and internal Jira tickets, with JQL filters and some automation; my reports to product owners have brought small fixes forward.",
     tags: ['Claude Code', 'GitHub Copilot', 'LLMs', 'Jira'],
   },
   {
@@ -31,7 +31,7 @@ export const experiences: Experience[] = [
     companyUrl: 'https://etas.com',
     period: '07/2025 – 07/2026',
     description:
-      "Year-long industrial placement in the Field Application Engineering team. Since July 2025 I've resolved 170+ support tickets from car makers (OEMs) and Tier-1 suppliers worldwide on RTA-CAR (AUTOSAR Classic): reproducing faults in C, finding root causes and escalating around 80 defects to R&D, most of them confirmed. I worked with their engineers by email, call and in person, and stayed involved to coordinate many of the escalated defects with R&D. I overhauled the team's Jenkins CI/CD pipeline (Groovy, Python), which builds, tests and releases the team's customer demo projects. Before it, most releases were done by hand over several hours; they now run reproducibly in under an hour, and the pipeline became the team standard. I also built Jenkins pipelines for the documentation and Confluence pages, and to automate Git commits. I volunteered to work with ETAS's internal DevOps team: I joined its stand-ups and retrospectives and brought what I learnt back to my team. I built the DevOps team a Grafana dashboard tracking its migration from legacy Bosch tools to Artifactory and Bitbucket, pre-aggregating the data in InfluxDB; its lead proposed one like it for every product line. I led the Jenkins deployment of SKDocs, a public documentation site built with MkDocs to replace PDF documentation, and agreed its scope and editorial standards with technical authors and management through changing requirements; the deployment is wired up ahead of launch. My supervisor rated me as \"consistently contributing at a level comparable to his full-time peers\".",
+      "Year-long industrial placement in the Field Application Engineering team. I overhauled the Jenkins CI/CD pipeline (Groovy, Python) that builds, tests and releases the team's customer demo projects. Before it, most releases were done by hand over several hours; they now run reproducibly in under an hour, and the pipeline became the team standard. Since July 2025 I've resolved 170+ support tickets from car makers (OEMs) and Tier-1 suppliers worldwide on RTA-CAR (AUTOSAR Classic): reproducing faults in C, finding root causes and escalating around 80 defects to R&D, most of them confirmed. I worked with customers' engineers by email, by phone and in person, and coordinated many of the escalated defects with R&D. I also wrote Jenkins pipelines that build the documentation and Confluence pages and automate Git commits. I volunteered to join the stand-ups and retrospectives of ETAS's internal DevOps team, and built the team a Grafana dashboard tracking its migration from legacy Bosch tools to Artifactory and Bitbucket, pre-aggregating the data in InfluxDB; its lead proposed one like it for every product line. I led the Jenkins deployment of SKDocs, a public documentation site built with MkDocs to replace PDF documentation, and agreed its scope and editorial standards with technical authors and management through changing requirements; the deployment is wired up ahead of launch. My supervisor's placement review described me as \"consistently contributing at a level comparable to his full-time peers\".",
     tags: [
       'RTA-CAR (AUTOSAR Classic)',
       'Jenkins',
@@ -48,7 +48,7 @@ export const experiences: Experience[] = [
     companyUrl: 'https://verifiedhandles.org',
     period: '11/2020 – Present',
     description:
-      "I founded and run Verified Handles, a public directory of verified social handles for 155,000+ public figures and organisations, nearly all of them linked to Wikidata. In 2026 I rebuilt it as one TypeScript/PostgreSQL platform, replacing MediaWiki, PHP and Python bots, and migrated all 591k historical revisions with zero data loss; it has been live since September 2026. I designed the site, its architecture, its hosting and its monitoring: production and staging behind Google Project Shield, nginx and Varnish, with Prometheus, Grafana and Loki for metrics, logs and alerts, and daily backups. I developed it by directing parallel Claude Code agents, each in its own clone, with every change gated by 10,000+ tests and a staging deploy. In its first four weeks the new site had six times the Google Search clicks of the old site's last four weeks, from about the same number of impressions. I also built JEMEDIA Accounts, the Go OAuth 2.0/OpenID Connect provider behind sign-in, and an MCP server (120+ tools), listed in the official MCP Registry, for running the directory with AI agents: writes are dry runs by default, destructive changes need confirmation, an agent never acts above its user's role, and every write is audited.",
+      "I founded and run Verified Handles, a public directory of verified social handles for 155,000+ public figures and organisations, nearly all of them linked to Wikidata. In 2026 I rebuilt it as a TypeScript/PostgreSQL platform, replacing MediaWiki, PHP and Python bots, and migrated all 591,000 historical revisions with zero data loss; it has been live since September 2026. I designed the site, its architecture, its hosting and its monitoring: production and staging behind Google Project Shield, nginx and Varnish, with Prometheus, Loki and Grafana for metrics, logs and alerts, and daily backups. I developed it with parallel Claude Code agents, each in its own clone: I review every change, and each is gated by 10,000+ tests and a staging deploy. In its first four weeks the new site had six times the Google Search clicks of the old site's last four weeks, from about the same number of impressions. I also built JEMEDIA Accounts, the Go OAuth 2.0/OpenID Connect provider behind sign-in, and an MCP server (120+ tools), listed in the official MCP Registry, for running the directory with AI agents: writes are dry runs by default, destructive changes need confirmation, an agent never acts above its user's role, and every write is audited.",
     links: [
       {
         label: 'MCP server on GitHub',
@@ -67,8 +67,8 @@ export const experiences: Experience[] = [
     companyUrl: 'https://rosettapath.com',
     period: '07/2024 – 06/2025, 07/2026 – Present',
     description:
-      "I advise the directors on cybersecurity for the company's data and hardware, including full-disk encryption and backups, and resolved the findings of a third-party security audit.",
-    tags: ['Cybersecurity'],
+      "I advise the directors on cyber security for the company's data and hardware, including full-disk encryption and backups, and resolved the findings of a third-party security audit.",
+    tags: ['Cyber security'],
   },
   {
     title: 'Website/SEO Strategist',
@@ -94,7 +94,7 @@ export const experiences: Experience[] = [
     company: "McDonald's",
     period: '10/2021 – 10/2024',
     description:
-      'Promoted to Crew Trainer, training new crew members in a fast-paced team, in Hertford and York. I resolved card-payment and in-store screen faults during service, keeping customers served and queues moving.',
+      'Promoted to Crew Trainer, training new crew members in a fast-paced team, in Hertford and York. I fixed card-payment and screen faults during service, keeping customers served and queues moving.',
     tags: ['Training', 'Customer service'],
   },
 ]

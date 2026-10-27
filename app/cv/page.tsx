@@ -20,7 +20,7 @@ import {
 export const metadata: Metadata = {
   title: 'CV',
   description:
-    'The CV of James Haworth, Software Engineer: education, experience, projects, technical skills, certifications and activities.',
+    'The CV of James Haworth, Software Engineer: education, experience, projects, technical skills, courses and awards.',
   alternates: {
     canonical: '/cv',
   },
@@ -192,7 +192,7 @@ export default function CvPage() {
             </dl>
           </CvSection>
 
-          <CvSection title="Certifications and Activities">
+          <CvSection title="Courses & Awards">
             {cvCertificates.map((certificate) => (
               <div
                 key={certificate.name}

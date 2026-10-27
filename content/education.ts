@@ -14,8 +14,8 @@ export const schools: School[] = [
       'BEng Computer Science with Artificial Intelligence (with a year in industry); predicted First',
     period: '09/2023 – 06/2027',
     details: [
-      'Second year: First-class average (73.5%); top modules: Data Science (79%), Advanced Computer Systems (79%), Machine Learning & Optimisation (78%)',
-      'Final year: capstone on ML entity resolution, linking WHOIS records to the companies behind them, measured against a published baseline; Deep Learning, Natural Language Processing, Large Language Models, Cloud-based Data Analysis',
+      'Second year: First-class average (73.5%); top modules: Introduction to Data Science (79%), Advanced Computer Systems (79%), Machine Learning & Optimisation (78%)',
+      'Final year: capstone on ML entity resolution, linking WHOIS records to the companies behind them, to be measured against a published baseline; Deep Learning, Natural Language Processing, Large Language Models, Cloud-based Data Analysis',
     ],
   },
   {
