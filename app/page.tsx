@@ -207,7 +207,7 @@ export default function Home() {
               download="James Haworth CV.pdf"
               className="underline underline-offset-4"
             >
-              one-page PDF
+              PDF
             </A>
             .
           </p>
