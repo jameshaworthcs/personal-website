@@ -124,7 +124,7 @@ export const work: Work[] = [
             "One PostgreSQL database beside a TypeScript application (Hono), which renders HTML on the server. Public pages carry almost no JavaScript: the search bar is about 13 kB and the site script about 18 kB, and the editor's 413 kB loads only when someone presses Edit.",
             'Every field records where its value came from, so the Wikidata sync never overwrites a hand edit. History is kept in three tiers: a verbatim archive of the old wiki, field-level changes from launch on, and an append-only audit log. Search runs in PostgreSQL itself, with trigram and full-text indexes, rather than a separate search service.',
             'The site runs behind Google Project Shield, nginx and Varnish, and pages are purged by surrogate keys when an entry changes. Monitoring is self-hosted: Prometheus, Grafana, Loki and GlitchTip. Measured in 10/2026, a cached entry page answers in a median 56 ms and an uncached one in 70 ms.',
-            'I also built JEMEDIA Accounts, the Go OAuth 2.0/OpenID Connect provider behind sign-in.',
+            'I also built JEMEDIA Accounts, the Go OAuth 2.0/OpenID Connect provider behind sign-in on the site and apps, and shipped its iOS and Android apps (React Native, Expo, TypeScript) to the App Store and Google Play: look up any profile from the share sheet, a widget or Apple Watch, and search saved entries offline.',
           ],
           screenshot: {
             name: 'vh-entry',
