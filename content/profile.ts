@@ -11,7 +11,7 @@ export const profile = {
   location: 'York, UK (willing to relocate)',
   // The CV's summary, under its contact line
   summary:
-    "ETAS (Bosch Group) kept me on part-time after my year in industry. I build and run CI/CD pipelines, a public web platform and AI agent tooling. I'm looking for a graduate software engineering role.",
+    "ETAS (Bosch Group) retained me part-time after my year in industry. I build and run a public web platform, CI/CD pipelines and AI agent tooling. I'm looking for a graduate software engineering role.",
   lede: 'Final-year Computer Science with AI student at the University of York, predicted a First and graduating 06/2027. I spent my placement year at ETAS (Bosch Group), where I still work part-time, and I founded and run Verified Handles, a public directory of verified social handles for 155,000+ public figures and organisations, which I rebuilt in 2026.',
   target:
     "Looking for a graduate software engineering role from 07/2027. I'm willing to relocate.",

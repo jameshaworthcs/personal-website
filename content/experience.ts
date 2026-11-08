@@ -22,7 +22,7 @@ export const experiences: Experience[] = [
     companyUrl: 'https://etas.com',
     period: '07/2026 – Present',
     description:
-      "ETAS kept me on part-time after my placement year. Since September 2026 I've led the Field Application Engineering team's shared repository of agent skills. I onboarded colleagues to Claude Code and GitHub Copilot, and most of the team now use them every week. I write agent skills for customer support and day-to-day development, alone and with colleagues: one investigates a support ticket from scratch and drafts a Jira comment, and another fact-checks the draft. Some investigations that took hours now take minutes. I keep model API costs down by running subagents on cheaper models and keeping their context small. I also track recurring RTA-CAR UI/UX issues across product teams, from using the product and from customer, first-line and internal Jira tickets, with JQL filters and some automation; my reports to product owners have brought small fixes forward.",
+      "ETAS kept me on part-time after my placement year. Since September 2026 I've led the Field Application Engineering team's shared repository of agent skills. I onboarded colleagues to Claude Code and GitHub Copilot one-to-one and in a team demo, and most of the team now use them every week. I write agent skills for customer support and day-to-day development, alone and with colleagues: one investigates a support ticket from scratch and drafts a Jira comment, and another fact-checks the draft. Some investigations that took hours now take minutes. I keep model API costs down by running subagents on cheaper models and keeping their context small. I also track recurring RTA-CAR UI/UX issues across product teams, from using the product and from customer, first-line and internal Jira tickets, with JQL filters and some automation; my reports to product owners have brought small fixes forward.",
     tags: ['Claude Code', 'GitHub Copilot', 'LLMs', 'Jira'],
   },
   {
@@ -48,7 +48,7 @@ export const experiences: Experience[] = [
     companyUrl: 'https://verifiedhandles.org',
     period: '11/2020 – Present',
     description:
-      "I founded and run Verified Handles, a public directory of verified social handles for 155,000+ public figures and organisations, nearly all of them linked to Wikidata. In 2026 I rebuilt it as a TypeScript/PostgreSQL platform, replacing MediaWiki, PHP and Python bots, and migrated all 591,000 historical revisions with zero data loss; it has been live since September 2026. I designed the site, its architecture, its hosting and its monitoring: production and staging behind Google Project Shield, nginx and Varnish, with Prometheus, Loki and Grafana for metrics, logs and alerts, and daily backups. I developed it with parallel Claude Code agents, each in its own clone: I review every change, and each is gated by 10,000+ tests and a staging deploy. In its first four weeks the new site had six times the Google Search clicks of the old site's last four weeks, from about the same number of impressions. I also built JEMEDIA Accounts, the Go OAuth 2.0/OpenID Connect provider behind sign-in, and an MCP server (120+ tools), listed in the official MCP Registry, for running the directory with AI agents: writes are dry runs by default, destructive changes need confirmation, an agent never acts above its user's role, and every write is audited.",
+      "I founded and run Verified Handles, a public directory of verified social handles for 155,000+ public figures and organisations, nearly all of them linked to Wikidata. In 2026 I rebuilt it as a TypeScript/PostgreSQL platform, replacing MediaWiki, PHP and Python bots, and migrated all 591,000 historical revisions with zero data loss; it has been live since September 2026. I designed the site, its architecture, its hosting and its monitoring: production and staging behind Google Project Shield, nginx and Varnish, with Prometheus, Loki and Grafana for metrics, logs and alerts, and daily backups. I developed it with parallel Claude Code agents, each in its own clone: I review every change, and each is gated by 10,000+ tests and a staging deploy. In its first four weeks the new site had six times the Google Search clicks of the old site's last four weeks, from about the same number of impressions. I shipped its iOS and Android apps (React Native, Expo, TypeScript) to the App Store and Google Play: look up any profile from the share sheet, a widget or Apple Watch, and search saved entries offline. I also built JEMEDIA Accounts, the Go OAuth 2.0/OpenID Connect provider behind sign-in on the site and apps, and an MCP server (120+ tools), listed in the official MCP Registry, for running the directory with AI agents: writes are dry runs by default, destructive changes need confirmation, an agent never acts above its user's role, and every write is audited.",
     links: [
       {
         label: 'MCP server on GitHub',
@@ -65,7 +65,7 @@ export const experiences: Experience[] = [
     title: 'Cyber Security and IT Engineer (part-time)',
     company: 'RosettaPath',
     companyUrl: 'https://rosettapath.com',
-    period: '07/2024 – 06/2025, 07/2026 – Present',
+    period: '07/2026 – Present, 07/2024 – 06/2025',
     description:
       "I advise the directors on cyber security for the company's data and hardware, including full-disk encryption and backups, and resolved the findings of a third-party security audit.",
     tags: ['Cyber security'],
@@ -86,7 +86,7 @@ export const experiences: Experience[] = [
     companyUrl: 'https://yorkwines.co.uk',
     period: '03/2024 – 06/2024',
     description:
-      'Through York Internships (University of York). Worked with management to evaluate how the old website sold wine, and helped build the new website.',
+      "Through York Internships (University of York). Reviewed the old website's sales journey with management, and helped build the new website.",
     tags: ['Web Development'],
   },
   {
@@ -94,7 +94,7 @@ export const experiences: Experience[] = [
     company: "McDonald's",
     period: '10/2021 – 10/2024',
     description:
-      'Promoted to Crew Trainer, training new crew members in a fast-paced team, in Hertford and York. I fixed card-payment and screen faults during service, keeping customers served and queues moving.',
+      'Promoted to Crew Trainer, mentoring new crew members in a fast-paced team, in Hertford and York. I handled customer enquiries, complaints and requests, and fixed card-payment and screen faults during service, keeping customers served and queues moving.',
     tags: ['Training', 'Customer service'],
   },
 ]
