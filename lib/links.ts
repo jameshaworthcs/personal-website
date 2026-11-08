@@ -15,6 +15,13 @@ export const followedPages = [
   'github.com/jameshaworthcs',
 ]
 
+// Store listings for apps James built. Only these exact listings are
+// followed, not the rest of the store.
+export const followedListings = [
+  'apps.apple.com/app/id6827295597',
+  'play.google.com/store/apps/details?id=org.verifiedhandles.app',
+]
+
 // Every other http(s) link gets nofollow
 export function isFollowed(href: string): boolean {
   // Relative paths, fragments, mailto: and the like stay on the site
@@ -28,6 +35,7 @@ export function isFollowed(href: string): boolean {
   )
     return true
   const page = `${host}${url.pathname.replace(/\/$/, '')}`.toLowerCase()
+  if (followedListings.includes(`${page}${url.search}`)) return true
   return followedPages.some(
     (prefix) => page === prefix || page.startsWith(`${prefix}/`)
   )
