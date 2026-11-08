@@ -6,7 +6,7 @@ export const skills = [
   },
   {
     group: 'Frameworks & Data',
-    items: 'React, Node.js, Hono, PostgreSQL, InfluxDB',
+    items: 'React, React Native (Expo), Node.js, Hono, PostgreSQL, InfluxDB',
   },
   {
     group: 'AI',

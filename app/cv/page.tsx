@@ -160,7 +160,7 @@ export default function CvPage() {
 
           <CvSection title="Experience">
             {cvExperience.map((entry) => (
-              <Entry key={entry.organisation} entry={entry} />
+              <Entry key={entry.roles[0].title} entry={entry} />
             ))}
           </CvSection>
 

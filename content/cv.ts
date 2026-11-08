@@ -18,6 +18,9 @@ export interface CvEntry {
 export const cvLinks: Record<string, string> = {
   'verifiedhandles.org': 'https://verifiedhandles.org',
   'j-h.ai/york-wines': 'https://j-h.ai/york-wines',
+  'App Store': 'https://apps.apple.com/app/id6827295597',
+  'Google Play':
+    'https://play.google.com/store/apps/details?id=org.verifiedhandles.app',
 }
 
 export const cvEducation: CvEntry[] = [
@@ -58,11 +61,18 @@ export const cvExperience: CvEntry[] = [
         title: 'Field Application Engineer (part-time)',
         period: '07/2026 – Present',
         bullets: [
-          "Lead the team's AI tooling: onboarded colleagues to Claude Code and GitHub Copilot, which most of the team now use weekly",
+          "Lead the team's AI tooling: onboarded colleagues to Claude Code and GitHub Copilot one-to-one and in a team demo; most of the team now use them weekly",
           'Write agent skills: one investigates a support ticket from scratch and drafts a Jira comment, another fact-checks the draft; subagents on cheaper models with small contexts keep API costs down; some investigations now take minutes, not hours',
           'Track recurring RTA-CAR UI/UX issues across product teams, from using the product and from customer, first-line and internal Jira tickets (JQL filters, some automation); my reports to product owners have brought small fixes forward',
         ],
       },
+    ],
+  },
+  {
+    // The two-page CV repeats the company for the internship
+    organisation: 'ETAS (Bosch Group)',
+    place: 'York, UK',
+    roles: [
       {
         title: 'Software Engineering Intern (placement year)',
         period: '07/2025 – 07/2026',
@@ -90,7 +100,8 @@ export const cvExperience: CvEntry[] = [
           'In 2026, rebuilt it as a TypeScript/PostgreSQL platform replacing MediaWiki, PHP and Python bots; migrated all 591,000 revisions with zero data loss; live since 09/2026',
           'Designed its architecture, hosting and monitoring: production and staging behind Google Project Shield, nginx and Varnish; Prometheus, Loki and Grafana for metrics, logs and alerts; daily backups',
           'Developed it with parallel Claude Code agents, each in its own clone: I review every change, and each is gated by 10,000+ tests and a staging deploy',
-          "Built the Go OAuth 2.0/OpenID Connect provider behind the site's sign-in",
+          'Shipped its iOS and Android apps (React Native, Expo, TypeScript) to the App Store and Google Play: look up any profile from the share sheet, a widget or Apple Watch, and search saved entries offline',
+          'Built the Go OAuth 2.0/OpenID Connect provider behind sign-in on the site and apps',
           'Built an MCP server (120+ tools), listed in the official MCP Registry, through which I run the live directory with AI agents, every write audited',
         ],
       },
@@ -102,7 +113,7 @@ export const cvExperience: CvEntry[] = [
     roles: [
       {
         title: 'Cyber Security and IT Engineer (part-time)',
-        period: '07/2024 – 06/2025, 07/2026 – Present',
+        period: '07/2026 – Present, 07/2024 – 06/2025',
         bullets: [
           "Advise the directors on cyber security for the company's data and hardware, including full-disk encryption and backups",
           'Resolved the findings of a third-party security audit',
@@ -128,7 +139,7 @@ export const cvExperience: CvEntry[] = [
     bullets: [
       "Offered a contract after the internship, then an extension (owner's video testimonial: j-h.ai/york-wines)",
       'Grew online sales by 30% and website traffic by 20% over my time there through SEO, site integrations and UX, using Google Analytics, Search Console, Tag Manager, Looker Studio and Merchant Center',
-      'As an intern, evaluated with management how the old website sold wine, and helped build the new one',
+      "As an intern, reviewed the old website's sales journey with management and helped build the new one",
     ],
   },
   {
@@ -139,7 +150,8 @@ export const cvExperience: CvEntry[] = [
         title: 'Crew Trainer (part-time)',
         period: '10/2021 – 10/2024',
         bullets: [
-          'Promoted to Crew Trainer, training new crew members in a fast-paced team',
+          'Promoted to Crew Trainer, mentoring new crew members in a fast-paced team',
+          'Handled customer enquiries, complaints and requests',
           'Fixed card-payment and screen faults during service, keeping customers served and queues moving',
         ],
       },
