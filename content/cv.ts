@@ -177,6 +177,11 @@ export const cvProjects = [
 export const cvCertificates: { name: string; issuer?: string; date: string }[] =
   [
     {
+      name: 'SFIA Level 3: Programming/Software Development, Application Support',
+      issuer: 'University of York',
+      date: '11/2026',
+    },
+    {
       name: 'Functional Safety and ISO 26262 Deep Dive',
       issuer: 'ETAS',
       date: '11/2025',
